@@ -31,6 +31,9 @@ Vue.component('iframe-tab', require('./components/layout/IframeTab.vue').default
 // dashboard
 Vue.component('count-card', require('./components/dashboard/CountCard.vue').default);
 
+// member
+Vue.component('member-table', require('./components/member/MemberTable.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
