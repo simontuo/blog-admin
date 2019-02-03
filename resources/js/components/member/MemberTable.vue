@@ -1,6 +1,9 @@
 <template>
     <div>
-        <Table :columns="columns1" :data="data1"></Table>
+        <Table
+                :columns="columns1" :data="data1"
+                ref="selection">
+        </Table>
         <div class="mt-3 float-right">
             <Page :total="100" show-sizer />
         </div>
