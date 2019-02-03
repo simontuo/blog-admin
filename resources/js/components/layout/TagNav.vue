@@ -82,7 +82,7 @@
                         cannotClose: true,
                     }
                 ];
-                this.activeName = 'home';
+                this.activeName = '首页';
             },
             refresh() {
                 document.getElementsByName(this.activeName)[0].contentWindow.location.reload(true)
