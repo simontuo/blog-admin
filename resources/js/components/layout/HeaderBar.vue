@@ -3,16 +3,20 @@
         <Header :style="{padding: 0}" class="layout-header-bar">
             <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu" size="24"></Icon>
             <div class="float-right mr-3">
-                <Dropdown>
+                <Dropdown
+                        @on-click="handleClick">
                     <a href="javascript:void(0)">
                         <Avatar icon="ios-person" />
                         <Icon type="md-arrow-dropdown" size="20"></Icon>
                     </a>
                     <DropdownMenu slot="list">
-                        <DropdownItem>个人中心</DropdownItem>
-                        <DropdownItem divided>登出</DropdownItem>
+                        <DropdownItem name="userCenter">个人中心</DropdownItem>
+                        <DropdownItem divided name="logout">登出</DropdownItem>
                     </DropdownMenu>
                 </Dropdown>
+                <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                    <input type="hidden" name="_token" :value="token">
+                </form>
             </div>
         </Header>
     </div>
@@ -22,6 +26,7 @@
     export default {
         data() {
             return {
+                token: $('meta[name="csrf-token"]').attr('content'),
                 isCollapsed: false
             }
         },
@@ -37,6 +42,13 @@
             collapsedSider () {
                 this.isCollapsed = this.isCollapsed ? false : true;
                 bus.$emit('isCollapsed', this.isCollapsed);
+            },
+            handleClick(name) {
+                this[name]();
+            },
+            logout() {
+                var form = document.getElementById('logout-form');
+                form.submit();
             }
         }
     }

@@ -13,7 +13,16 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+         $this->middleware('auth');
+    }
+
+    /**
+     * author SimonTuo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function homePage()
+    {
+        return view('index');
     }
 
     /**
