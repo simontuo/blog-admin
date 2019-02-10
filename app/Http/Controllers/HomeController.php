@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -17,6 +16,8 @@ class HomeController extends Controller
     }
 
     /**
+     * 外层页面主页
+     *
      * author SimonTuo
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -26,9 +27,10 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * iframe页面 主页
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * author SimonTuo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {

@@ -75,6 +75,7 @@
         {{--<main class="py-4">--}}
             {{--@yield('content')--}}
         {{--</main>--}}
+
         <base-layout>
             <template slot="leftMenu">
                 <left-menu></left-menu>
@@ -85,13 +86,11 @@
             <template slot="tag-nav">
                 <tag-nav></tag-nav>
             </template>
-            {{--<template slot="iframe-tab">--}}
-                {{--<iframe-tab></iframe-tab>--}}
-                {{--<Content :style="{margin: '20px', background: '#fff', minHeight: '260px'}">--}}
-                    {{--<iframe src="/users" name="test" frameborder="0"></iframe>--}}
-                {{--</Content>--}}
-            {{--</template>--}}
         </base-layout>
+
+        @if(session()->has('notice'))
+            <global-notice notice="{{ collect(session('notice'))->toJson() }}"></global-notice>
+        @endif
     </div>
 </body>
 </html>

@@ -54,6 +54,11 @@
                     }
                 ]
             }
+        },
+        mounted() {
+            axios.get('/members/page_search').then(response => {
+
+            });
         }
     }
 </script>
