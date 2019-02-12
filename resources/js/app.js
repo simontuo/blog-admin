@@ -28,6 +28,7 @@ Vue.component('left-menu', require('./components/layout/LeftMenu.vue').default);
 Vue.component('tag-nav', require('./components/layout/TagNav.vue').default);
 Vue.component('iframe-tab', require('./components/layout/IframeTab.vue').default);
 Vue.component('global-notice', require('./components/layout/Notice.vue').default);
+Vue.component('paginate', require('./components/layout/Paginate.vue').default);
 
 // dashboard
 Vue.component('count-card', require('./components/dashboard/CountCard.vue').default);
