@@ -15,12 +15,16 @@ class Member extends Model
         'name'              => '名称',
         'email'             => '邮箱',
         'email_verified_at' => '验证于',
-        'created_at'        => '创建于',
+        'created_format'        => '创建于',
     ];
 
     protected $fillable = [
         'name',
         'email',
         'email_verified_at',
+    ];
+
+    protected $appends = [
+        'created_format'
     ];
 }

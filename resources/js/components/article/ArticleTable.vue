@@ -31,7 +31,7 @@
         methods: {
             search(page = 1, pagesSize = 10) {
                 this.loading = true;
-                axios.get('/members/page_search', {params: {page: page, pagesSize: pagesSize}}).then(response => {
+                axios.get('/articles/page_search', {params: {page: page, pagesSize: pagesSize}}).then(response => {
                     this.columns = response.data.columns;
                     this.data = response.data.data.data;
                     this.total = response.data.data.total;

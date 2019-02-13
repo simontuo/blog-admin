@@ -36,6 +36,9 @@ Vue.component('count-card', require('./components/dashboard/CountCard.vue').defa
 // member
 Vue.component('member-table', require('./components/member/MemberTable.vue').default);
 
+// article
+Vue.component('article-table', require('./components/article/ArticleTable.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -18,4 +18,5 @@ Route::get('/home', 'HomeController@index')->name('home.index');
 Route::get('/members', 'MemberController@index')->name('members.index');
 Route::get('/members/page_search', 'MemberController@pageSearch')->name('members.page_search');
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
+Route::get('/articles/page_search', 'ArticleController@pageSearch')->name('articles.page_search');
 Route::get('/users', 'UserController@index')->name('users.index');

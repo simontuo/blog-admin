@@ -12,10 +12,11 @@ class ArticleController extends Controller
         return view('articles.index');
     }
 
-    public function pageSearch()
+    public function pageSearch(Request $request)
     {
-        $articles = Article::paginate(10);
+        $members = Article::with('user')
+            ->paginate($request->pagesSize);
 
-        return response()->json(['articles' => $articles]);
+        return response()->json(['data' => $members, 'columns' => Article::transformColumn()]);
     }
 }

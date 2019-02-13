@@ -26,9 +26,15 @@ trait Transform
 
         return collect([$selection, $index])->merge(collect(self::$columns)->map(function ($item, $key) {
             return [
-                'title' => $item,
-                'key'   => $key
+                'title'   => $item,
+                'key'     => $key,
+                'tooltip' => true
             ];
         })->values());
+    }
+
+    public function getCreatedFormatAttribute()
+    {
+        return $this->created_at->diffForHumans();
     }
 }
