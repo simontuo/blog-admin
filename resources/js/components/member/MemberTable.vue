@@ -22,16 +22,21 @@
             }
         },
         mounted() {
-            this.loading = true;
-            axios.get('/members/page_search').then(response => {
-                this.columns = response.data.columns;
-                this.data = response.data.data.data;
-                this.total = response.data.total;
-                this.loading = false;
-            });
+            this.search();
+            bus.$on('search', response => {
+                this.search(response.page, response.pagesSize);
+            })
         },
         methods: {
-
+            search(page = 1, pagesSize = 10) {
+                this.loading = true;
+                axios.get('/members/page_search', {params: {page: page, pagesSize: pagesSize}}).then(response => {
+                    this.columns = response.data.columns;
+                    this.data = response.data.data.data;
+                    this.total = response.data.data.total;
+                    this.loading = false;
+                });
+            }
         }
     }
 </script>

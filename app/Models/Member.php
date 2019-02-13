@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use Transform;
-    public $selection = false;
-//    const SELECTION = false;
+
     protected $table = 'users';
 
     public static $columns = [

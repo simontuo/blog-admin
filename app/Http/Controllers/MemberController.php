@@ -18,9 +18,9 @@ class MemberController extends Controller
         return view('members.index');
     }
 
-    public function pageSearch()
+    public function pageSearch(Request $request)
     {
-        $members = Member::paginate(15);
+        $members = Member::paginate($request->pagesSize);
 
         return response()->json(['data' => $members, 'columns' => Member::transformColumn()]);
     }
