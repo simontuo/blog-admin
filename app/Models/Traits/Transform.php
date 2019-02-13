@@ -37,4 +37,9 @@ trait Transform
     {
         return $this->created_at->diffForHumans();
     }
+
+    public function getCreatorAttribute()
+    {
+        return $this->user->name;
+    }
 }

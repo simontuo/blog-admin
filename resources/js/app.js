@@ -21,7 +21,7 @@ window.bus = new Vue;
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
+// layout
 Vue.component('base-layout', require('./components/layout/BaseLayout.vue').default);
 Vue.component('header-bar', require('./components/layout/HeaderBar.vue').default);
 Vue.component('left-menu', require('./components/layout/LeftMenu.vue').default);
@@ -29,15 +29,14 @@ Vue.component('tag-nav', require('./components/layout/TagNav.vue').default);
 Vue.component('iframe-tab', require('./components/layout/IframeTab.vue').default);
 Vue.component('global-notice', require('./components/layout/Notice.vue').default);
 Vue.component('paginate', require('./components/layout/Paginate.vue').default);
-
 // dashboard
 Vue.component('count-card', require('./components/dashboard/CountCard.vue').default);
-
 // member
 Vue.component('member-table', require('./components/member/MemberTable.vue').default);
-
 // article
 Vue.component('article-table', require('./components/article/ArticleTable.vue').default);
+// comment
+Vue.component('comment-table', require('./components/comment/CommentTable.vue').default);
 
 
 /**
