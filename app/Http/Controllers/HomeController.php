@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -13,13 +12,25 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+         $this->middleware('auth');
     }
 
     /**
-     * Show the application dashboard.
+     * 外层页面主页
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * author SimonTuo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function homePage()
+    {
+        return view('index');
+    }
+
+    /**
+     * iframe页面 主页
+     *
+     * author SimonTuo
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {

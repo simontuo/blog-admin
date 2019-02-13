@@ -18,11 +18,21 @@
             <Icon type="ios-search"></Icon>
             <span>文章管理</span>
         </MenuItem>
-        <MenuItem name="系统管理">
+        <MenuItem name="评论管理">
             <Icon type="ios-settings"></Icon>
-            <span>系统管理</span>
+            <span>评论管理</span>
         </MenuItem>
+        <Submenu name="系统管理">
+            <template slot="title">
+                <Icon type="ios-paper" />
+                系统管理
+            </template>
+            <MenuItem name="管理员">管理员</MenuItem>
+            <MenuItem name="角色">角色</MenuItem>
+            <MenuItem name="权限">权限</MenuItem>
+        </Submenu>
     </Menu>
+
 </template>
 
 <script>
@@ -41,8 +51,8 @@
                         'url': '/articles'
                     },
                     {
-                        'name': '系统管理',
-                        'url': '/system'
+                        'name': '评论管理',
+                        'url': '/comments'
                     }
                 ],
             }

@@ -24,6 +24,10 @@
     <div>
         @yield('content')
     </div>
+
+    @if(session()->has('notice'))
+        <global-notice notice="{{ collect(session('notice'))->toJson() }}"></global-notice>
+    @endif
 </div>
 </body>
 </html>
