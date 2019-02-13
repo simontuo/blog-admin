@@ -22,6 +22,6 @@ class MemberController extends Controller
     {
         $members = Member::paginate(15);
 
-        return response()->json(['members' => $members]);
+        return response()->json(['data' => $members, 'columns' => Member::transformColumn()]);
     }
 }
