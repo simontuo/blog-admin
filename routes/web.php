@@ -19,6 +19,7 @@ Route::get('/members', 'MemberController@index')->name('members.index');
 Route::get('/members/page_search', 'MemberController@pageSearch')->name('members.page_search');
 Route::get('/articles', 'ArticleController@index')->name('articles.index');
 Route::get('/articles/page_search', 'ArticleController@pageSearch')->name('articles.page_search');
+Route::get('/articles/create', 'ArticleController@create')->name('articles.create');
 Route::get('/comments', 'CommentController@index')->name('comments.index');
 Route::get('/comments/page_search', 'CommentController@pageSearch')->name('comments.page_search');
 Route::get('/users', 'UserController@index')->name('users.index');

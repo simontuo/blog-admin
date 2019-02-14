@@ -6,6 +6,9 @@
 @import '~bootstrap/scss/bootstrap';
 // iview
 @import '~iview/dist/styles/iview';
+// markdown 样式
+@import 'markdown';
+@import '~prismjs/themes/prism-tomorrow';
 
 .navbar-laravel {
     background-color: #fff;

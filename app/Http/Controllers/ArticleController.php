@@ -19,4 +19,9 @@ class ArticleController extends Controller
 
         return response()->json(['data' => $members, 'columns' => Article::transformColumn()]);
     }
+
+    public function create()
+    {
+        return view('articles.create_and_update');
+    }
 }

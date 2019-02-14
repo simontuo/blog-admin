@@ -29,12 +29,15 @@ Vue.component('tag-nav', require('./components/layout/TagNav.vue').default);
 Vue.component('iframe-tab', require('./components/layout/IframeTab.vue').default);
 Vue.component('global-notice', require('./components/layout/Notice.vue').default);
 Vue.component('paginate', require('./components/layout/Paginate.vue').default);
+Vue.component('redirect-button', require('./components/layout/RedirectButton.vue').default);
+Vue.component('markdown-textarea', require('./components/layout/MarkdownTextarea.vue').default);
 // dashboard
 Vue.component('count-card', require('./components/dashboard/CountCard.vue').default);
 // member
 Vue.component('member-table', require('./components/member/MemberTable.vue').default);
 // article
 Vue.component('article-table', require('./components/article/ArticleTable.vue').default);
+Vue.component('article-create-and-update-form', require('./components/article/CreateAndUpdate.vue').default);
 // comment
 Vue.component('comment-table', require('./components/comment/CommentTable.vue').default);
 
