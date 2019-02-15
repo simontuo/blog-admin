@@ -12,6 +12,9 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    // markdown code height light样式
+    require('./lib/prism');
+
 } catch (e) {}
 
 /**
