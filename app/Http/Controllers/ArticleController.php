@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ArticleStoreRequest;
 use App\Models\Article;
 use App\Models\Tag;
+use App\Services\ParsedownExtra;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -21,6 +22,19 @@ class ArticleController extends Controller
             ->paginate($request->pagesSize);
 
         return response()->json(['data' => $members, 'columns' => Article::transformColumn()]);
+    }
+
+    public function show(Article $article)
+    {
+        $parseDownExtra = new ParsedownExtra();
+
+        $article->content = $parseDownExtra->text($article->content);
+
+        $article->load('user', 'tags');
+
+        $article->increment('read_count');
+
+        return view('articles.show', ['article' => $article]);
     }
 
     public function create()

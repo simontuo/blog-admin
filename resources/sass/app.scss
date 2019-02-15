@@ -9,6 +9,8 @@
 // markdown 样式
 @import 'markdown';
 @import '~prismjs/themes/prism-tomorrow';
+// ionicons
+//@import '~ionicons/dist/scss/ionicons';
 
 .navbar-laravel {
     background-color: #fff;
@@ -81,5 +83,32 @@
     transition: font-size .2s ease .2s, transform .2s ease .2s;
     vertical-align: middle;
     font-size: 22px;
+}
+
+.article-show {
+    //box-shadow: 0px 1px 1px rgba(42, 42, 42, 0.1);
+    .card {
+        border: none;
+        .card-title {
+            font-size: 22px;
+        }
+        .card-title-sub {
+            color: #80848f;
+            border-bottom: 1px solid #e9eaec;
+            padding-bottom: 15px;
+            font-size: 14px;
+        }
+        .card-title-btn-group {
+            .icon {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .article-show-footer-icon {
+        .badge {
+            font-size: 15px;
+        }
+    }
 }
 

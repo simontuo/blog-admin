@@ -1,11 +1,13 @@
 <template>
     <div>
         <Table
-                height="600"
+                highlight-row
+                :height="600"
                 :loading="loading"
                 :columns="columns"
                 :data="data"
-                ref="selection">
+                ref="selection"
+                @on-row-dblclick="dblClick">
         </Table>
         <div class="mt-3 float-right">
             <paginate :total="total"></paginate>
@@ -37,6 +39,11 @@
                     this.total = response.data.data.total;
                     this.loading = false;
                 });
+            },
+            dblClick(row) {
+                // console.log('/articles/' + row.id);
+                window.location.href = '/articles/' + row.id;
+
             }
         }
     }
