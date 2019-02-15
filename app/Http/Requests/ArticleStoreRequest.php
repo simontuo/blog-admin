@@ -14,22 +14,22 @@ class ArticleStoreRequest extends Request
     public function rules()
     {
         return [
-            'formItem.title'    => 'required|string',
-            'formItem.tags'     => 'required|array',
-            'formItem.type'     => 'required|string',
-            'formItem.isPublic' => 'required|boolean',
-            'formItem.content'  => 'required'
+            'formItem.title'     => 'required|string',
+            'formItem.tags'      => 'required|array',
+            'formItem.type'      => 'required|string',
+            'formItem.is_public' => 'required|boolean',
+            'formItem.content'   => 'required'
         ];
     }
 
     public function attributes()
     {
         return [
-            'formItem.title'    => '标题',
-            'formItem.tags'     => '标签',
-            'formItem.type'     => '类型',
-            'formItem.isPublic' => '公开',
-            'formItem.content'  => '正文',
+            'formItem.title'     => '标题',
+            'formItem.tags'      => '标签',
+            'formItem.type'      => '类型',
+            'formItem.is_public' => '公开',
+            'formItem.content'   => '正文',
         ];
     }
 }

@@ -20,7 +20,7 @@ class MemberController extends Controller
 
     public function pageSearch(Request $request)
     {
-        $members = Member::paginate($request->pagesSize);
+        $members = Member::latest()->paginate($request->pagesSize);
 
         return response()->json(['data' => $members, 'columns' => Member::transformColumn()]);
     }

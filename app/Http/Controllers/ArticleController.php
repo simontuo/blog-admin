@@ -17,6 +17,7 @@ class ArticleController extends Controller
     public function pageSearch(Request $request)
     {
         $members = Article::with('user')
+            ->latest()
             ->paginate($request->pagesSize);
 
         return response()->json(['data' => $members, 'columns' => Article::transformColumn()]);
@@ -31,6 +32,13 @@ class ArticleController extends Controller
 
     public function store(ArticleStoreRequest $request)
     {
-        dd($request->all());
+        $article = new Article($request->formItem);
+
+        $article->user()->associate(user());
+        $article->save();
+
+        $article->tags()->attach($request->formItem['tags']);
+
+        return response()->json(['message' => '新建成功']);
     }
 }

@@ -23,4 +23,9 @@ class Tag extends Model
     protected $appends = [
         'created_format'
     ];
+
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class)->withTimestamps();
+    }
 }

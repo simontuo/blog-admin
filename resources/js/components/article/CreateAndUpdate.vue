@@ -18,7 +18,7 @@
             </RadioGroup>
         </FormItem>
         <FormItem label="公开">
-            <i-switch v-model="formItem.isPublic" size="large">
+            <i-switch v-model="formItem.is_public" size="large">
                 <span slot="open">On</span>
                 <span slot="close">Off</span>
             </i-switch>
@@ -27,7 +27,10 @@
             <markdown-textarea id="contentEditor" ref="contentEditor" v-model="formItem.content"  :zIndex="20"></markdown-textarea>
         </FormItem>
         <FormItem>
-            <Button type="primary" @click="submit">提交</Button>
+            <Button type="primary" @click="submit" :disabled="loading">
+                <span v-if="!loading">提交</span>
+                <span v-else>Loading...</span>
+            </Button>
             <Button style="margin-left: 8px">取消</Button>
         </FormItem>
     </Form>
@@ -37,20 +40,33 @@
         props: ['tags'],
         data() {
             return {
+                loading: false,
                 formItem: {
                     title: '',
                     tags: [],
                     type: 'carry',
-                    isPublic: false,
+                    is_public: false,
                     content: '',
                 }
             }
         },
         methods: {
             submit() {
+                this.loading = true;
                 this.$Loading.start();
                 axios.post('/articles/store', {'formItem': this.formItem}).then(response => {
                     this.$Loading.finish();
+                    this.$Notice.success({
+                        title: response.data.message,
+                        onClose: function () {
+                            window.location.href = '/articles';
+                        }
+                    });
+                    this.loading = false;
+
+
+                }).catch(error => {
+                    this.loading = false;
                 });
             }
         }
