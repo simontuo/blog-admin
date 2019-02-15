@@ -14,6 +14,10 @@
             <Icon type="ios-navigate"></Icon>
             <span>会员管理</span>
         </MenuItem>
+        <MenuItem name="标签管理">
+            <Icon type="ios-search"></Icon>
+            <span>标签管理</span>
+        </MenuItem>
         <MenuItem name="文章管理">
             <Icon type="ios-search"></Icon>
             <span>文章管理</span>
@@ -49,6 +53,10 @@
                     {
                         'name': '文章管理',
                         'url': '/articles'
+                    },
+                    {
+                        'name': '标签管理',
+                        'url': '/tags'
                     },
                     {
                         'name': '评论管理',

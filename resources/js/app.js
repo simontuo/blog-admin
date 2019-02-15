@@ -10,6 +10,7 @@ window.Vue = require('vue');
 window.iView = require('iview');
 window.bus = new Vue;
 
+require('./lib/handlehttp');
 
 /**
  * The following block of code may be used to automatically register your
@@ -40,6 +41,8 @@ Vue.component('article-table', require('./components/article/ArticleTable.vue').
 Vue.component('article-create-and-update-form', require('./components/article/CreateAndUpdate.vue').default);
 // comment
 Vue.component('comment-table', require('./components/comment/CommentTable.vue').default);
+// tag
+Vue.component('tag-table', require('./components/tag/TagTable.vue').default);
 
 
 /**
