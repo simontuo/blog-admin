@@ -1,7 +1,10 @@
 @extends('layouts.iframe')
 
 @section('content')
-    <div class="row">
+    <div class="bread-crumb">
+        <bread-crumb breadcrumbs="{{ collect($breadcrumbs)->toJson() }}"></bread-crumb>
+    </div>
+    <div class="row show-body">
         <div class="col-sm-12">
             {{--文章内容 开始--}}
             <div class="article-show">

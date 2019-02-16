@@ -19,7 +19,7 @@
         <!-- Styles -->
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="iframe-body">
         <div id="app">
             @yield('content')
 

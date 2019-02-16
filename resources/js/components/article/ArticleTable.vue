@@ -2,7 +2,7 @@
     <div>
         <Table
                 highlight-row
-                :height="600"
+                :height="615"
                 :loading="loading"
                 :columns="columns"
                 :data="data"

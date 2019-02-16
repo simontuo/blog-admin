@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    protected $breadcrumbs;
+
+    /**
+     * ArticleController constructor.
+     */
+    public function __construct()
+    {
+        $this->breadcrumbs = config('breadcrumb.' . \Route::currentRouteName());
+    }
+
     public function index()
     {
         return view('articles.index');
@@ -34,14 +44,20 @@ class ArticleController extends Controller
 
         $article->increment('read_count');
 
-        return view('articles.show', ['article' => $article]);
+        return view('articles.show', [
+            'article'     => $article,
+            'breadcrumbs' => $this->breadcrumbs,
+        ]);
     }
 
     public function create()
     {
         $tags = Tag::get();
 
-        return view('articles.create_and_update', ['tags' => $tags]);
+        return view('articles.create_and_update', [
+            'tags'        => $tags,
+            'breadcrumbs' => $this->breadcrumbs,
+        ]);
     }
 
     public function store(ArticleStoreRequest $request)
@@ -65,8 +81,9 @@ class ArticleController extends Controller
         $tags = Tag::get();
 
         return view('articles.create_and_update', [
-            'article' => $article,
-            'tags'    => $tags
+            'article'     => $article,
+            'tags'        => $tags,
+            'breadcrumbs' => $this->breadcrumbs,
         ]);
     }
 

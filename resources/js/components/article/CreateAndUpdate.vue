@@ -1,6 +1,5 @@
 <template>
     <Form :model="formItem" :label-width="80">
-        <Alert show-icon closable>An info prompt</Alert>
         <FormItem label="标题">
             <Input v-model="formItem.title" placeholder="输入标题..."></Input>
         </FormItem>

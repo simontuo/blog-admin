@@ -1,14 +1,15 @@
 <template>
     <Breadcrumb>
-        <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        <BreadcrumbItem to="/components/breadcrumb">Components</BreadcrumbItem>
-        <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
+        <BreadcrumbItem
+                :to="breadcrumb.url"
+                v-for="(breadcrumb, index) in JSON.parse(breadcrumbs)"
+                :key="index">{{ breadcrumb.label }}</BreadcrumbItem>
     </Breadcrumb>
 </template>
 
 <script>
     export default {
-        name: "BreadcCrumb"
+        props: ['breadcrumbs'],
     }
 </script>
 

@@ -11,6 +11,10 @@
 // markdown code height light 主题
 @import '~prismjs/themes/prism-tomorrow';
 
+.iframe-body {
+    background-color: #f5f7f9;
+}
+
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -109,5 +113,16 @@
             font-size: 15px;
         }
     }
+}
+
+.show-body {
+    margin: 15px;
+    background-color: #fff;
+}
+
+.bread-crumb {
+    margin: 15px;
+    padding: 10px;
+    background-color: #fff;
 }
 
