@@ -7,7 +7,7 @@
                     icon="md-add"
                     type="primary"
                     text="创建标签"
-                    url="/articles/create">
+                    url="/tags/create">
             </redirect-button>
         </div>
         <tag-table></tag-table>

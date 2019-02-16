@@ -46,6 +46,7 @@ Vue.component('article-create-and-update-form', require('./components/article/Cr
 Vue.component('comment-table', require('./components/comment/CommentTable.vue').default);
 // tag
 Vue.component('tag-table', require('./components/tag/TagTable.vue').default);
+Vue.component('tag-create-and-update-form', require('./components/tag/CreateAndUpdate.vue').default);
 
 
 /**

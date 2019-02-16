@@ -30,5 +30,6 @@ Route::get('/comments', 'CommentController@index')->name('comments.index');
 Route::get('/comments/page_search', 'CommentController@pageSearch')->name('comments.page_search');
 Route::get('/tags', 'TagController@index')->name('comments.tags');
 Route::get('/tags/page_search', 'TagController@pageSearch')->name('tags.page_search');
+Route::get('/tags/create', 'TagController@create')->name('tags.create');
 
 

@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
+    protected $breadcrumbs;
+
+    /**
+     * TagController constructor.
+     */
+    public function __construct()
+    {
+        $this->breadcrumbs = config('breadcrumb.' . \Route::currentRouteName());
+    }
+
     public function index()
     {
         return view('tags.index');
@@ -17,5 +27,12 @@ class TagController extends Controller
         $members = Tag::paginate($request->pagesSize);
 
         return response()->json(['data' => $members, 'columns' => Tag::transformColumn()]);
+    }
+
+    public function create()
+    {
+        return view('tags.create_and_update', [
+            'breadcrumbs' => $this->breadcrumbs,
+        ]);
     }
 }
