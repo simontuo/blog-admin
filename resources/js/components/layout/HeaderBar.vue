@@ -49,6 +49,12 @@
             logout() {
                 var form = document.getElementById('logout-form');
                 form.submit();
+            },
+            userCenter() {
+                bus.$emit('pushTag', {
+                    'name': '个人中心',
+                    'url': '/users'
+                });
             }
         }
     }

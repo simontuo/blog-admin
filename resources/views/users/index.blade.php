@@ -1,7 +1,7 @@
 @extends('layouts.iframe')
 
 @section('content')
-    <div>
-        <p>{{ route('users.index') }}</p>
+    <div class="m-3">
+        <user-center></user-center>
     </div>
 @endsection

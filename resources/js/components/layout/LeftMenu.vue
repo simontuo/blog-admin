@@ -83,7 +83,7 @@
         },
         methods: {
             onSelect(name) {
-                var tagInfo;
+                let tagInfo;
                 for (var i = 0; i < this.urls.length; i ++) {
                     if (this.urls[i].name === name) {
                         tagInfo = this.urls[i];
