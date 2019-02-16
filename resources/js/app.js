@@ -32,6 +32,7 @@ Vue.component('global-notice', require('./components/layout/Notice.vue').default
 Vue.component('paginate', require('./components/layout/Paginate.vue').default);
 Vue.component('redirect-button', require('./components/layout/RedirectButton.vue').default);
 Vue.component('markdown-textarea', require('./components/layout/MarkdownTextarea.vue').default);
+Vue.component('bread-crumb', require('./components/layout/BreadCrumb.vue').default);
 // dashboard
 Vue.component('count-card', require('./components/dashboard/CountCard.vue').default);
 // member

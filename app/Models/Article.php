@@ -4,10 +4,12 @@ namespace App\Models;
 
 use App\Models\Traits\Transform;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Article extends Model
 {
     use Transform;
+    use SoftDeletes;
 
     const TYPE_CARRY = 'carry';
     const TYPE_ORIGINAL = 'original';
@@ -40,6 +42,10 @@ class Article extends Model
 
     protected $casts = [
         'is_public' => 'boolean',
+    ];
+
+    protected $dates = [
+        'deleted_at'
     ];
 
     public function user()

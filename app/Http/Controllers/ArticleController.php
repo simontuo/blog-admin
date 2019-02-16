@@ -53,6 +53,36 @@ class ArticleController extends Controller
 
         $article->tags()->attach($request->formItem['tags']);
 
-        return response()->json(['message' => '新建成功']);
+        return response()->json(['message' => '新建成功'], 200);
+    }
+
+    public function edit(Article $article)
+    {
+        $article->load('user', 'tags');
+
+        $article->tagIds = $article->tags->pluck('id')->toArray();
+
+        $tags = Tag::get();
+
+        return view('articles.create_and_update', [
+            'article' => $article,
+            'tags'    => $tags
+        ]);
+    }
+
+    public function update(Request $request, Article $article)
+    {
+        $article->update($request->formItem);
+
+        $article->tags()->sync($request->formItem['tags']);
+
+        return response()->json(['message' => '编辑成功'], 200);
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+        return response()->json(['message' => '删除成功'], 200);
     }
 }

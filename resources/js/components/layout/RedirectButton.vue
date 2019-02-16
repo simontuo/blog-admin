@@ -1,5 +1,7 @@
 <template>
-    <i-button :type="type" :icon="icon" @click="redirect">{{ text }}</i-button>
+    <i-button :type="type" :icon="icon" @click="redirect">
+        <!--<Icon v-if='icon' :type="icon" size="18"></Icon>-->
+        {{ text }}</i-button>
 </template>
 
 <script>

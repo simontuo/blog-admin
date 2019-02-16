@@ -16,8 +16,8 @@
                 {{ tag.name }}
             </Tag>
         </span>
-            <Button type="default" class="float-right">
-                <Icon type="md-refresh" size="18" @click="refresh"></Icon>
+            <Button type="default" class="float-right" @click="refresh">
+                <Icon type="md-refresh" size="18"></Icon>
             </Button>
         </div>
         <div>
