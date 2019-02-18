@@ -13,8 +13,11 @@ class ArticleStoreRequest extends Request
      */
     public function rules()
     {
+        $article = $this->route('article');
+        $id      = $article->id ?? '';
+
         return [
-            'formItem.title'     => 'required|string',
+            'formItem.title'     => 'required|string|unique:articles,title,' . $id,
             'formItem.tags'      => 'required|array',
             'formItem.type'      => 'required|string',
             'formItem.is_public' => 'required|boolean',

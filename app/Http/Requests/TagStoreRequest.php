@@ -13,8 +13,11 @@ class TagStoreRequest extends Request
      */
     public function rules()
     {
+        $tag = $this->route('tag');
+        $id  = $tag->id ?? '';
+
         return [
-            'formItem.name'      => 'required',
+            'formItem.name'      => 'required|unique:tags,name,' . $id,
             'formItem.color'     => 'required',
             'formItem.is_banned' => 'required|boolean'
         ];
