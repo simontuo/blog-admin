@@ -28,7 +28,8 @@ trait Transform
             return [
                 'title'   => $item,
                 'key'     => $key,
-                'tooltip' => true
+                'tooltip' => true,
+                'align'   => 'center'
             ];
         })->values());
     }
@@ -75,5 +76,16 @@ trait Transform
     public function getIsPublicFormatAttribute()
     {
         return $this->is_public ? '是' : '否';
+    }
+
+    /**
+     * 是否禁用
+     *
+     * author SimonTuo
+     * @return string
+     */
+    public function getIsBannedFormatAttribute()
+    {
+        return $this->is_banned ? '是' : '否';
     }
 }

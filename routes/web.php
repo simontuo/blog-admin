@@ -31,5 +31,9 @@ Route::get('/comments/page_search', 'CommentController@pageSearch')->name('comme
 Route::get('/tags', 'TagController@index')->name('comments.tags');
 Route::get('/tags/page_search', 'TagController@pageSearch')->name('tags.page_search');
 Route::get('/tags/create', 'TagController@create')->name('tags.create');
+Route::post('/tags/store', 'TagController@store')->name('tags.store');
+Route::get('/tags/{tag}/edit', 'TagController@edit')->name('tags.edit');
+Route::put('/tags/{tag}', 'TagController@update')->name('tags.update');
+Route::delete('/tags/{tag}', 'TagController@destroy')->name('tags.destroy');
 
 

@@ -1,73 +1,87 @@
 <template>
     <Form :model="formItem" :label-width="80">
-        <FormItem label="Input">
-            <Input v-model="formItem.input" placeholder="Enter something..."></Input>
+        <FormItem label="名称">
+            <Input v-model="formItem.name" placeholder="输入名称..."></Input>
         </FormItem>
-        <FormItem label="Select">
-            <Select v-model="formItem.select">
-                <Option value="beijing">New York</Option>
-                <Option value="shanghai">London</Option>
-                <Option value="shenzhen">Sydney</Option>
-            </Select>
+        <FormItem label="颜色">
+            <ColorPicker v-model="formItem.color"></ColorPicker>
         </FormItem>
-        <FormItem label="DatePicker">
-            <Row>
-                <Col span="11">
-                    <DatePicker type="date" placeholder="Select date" v-model="formItem.date"></DatePicker>
-                </Col>
-                <Col span="2" style="text-align: center">-</Col>
-                <Col span="11">
-                    <TimePicker type="time" placeholder="Select time" v-model="formItem.time"></TimePicker>
-                </Col>
-            </Row>
-        </FormItem>
-        <FormItem label="Radio">
-            <RadioGroup v-model="formItem.radio">
-                <Radio label="male">Male</Radio>
-                <Radio label="female">Female</Radio>
-            </RadioGroup>
-        </FormItem>
-        <FormItem label="Checkbox">
-            <CheckboxGroup v-model="formItem.checkbox">
-                <Checkbox label="Eat"></Checkbox>
-                <Checkbox label="Sleep"></Checkbox>
-                <Checkbox label="Run"></Checkbox>
-                <Checkbox label="Movie"></Checkbox>
-            </CheckboxGroup>
-        </FormItem>
-        <FormItem label="Switch">
-            <i-switch v-model="formItem.switch" size="large">
+        <FormItem label="禁用">
+            <i-switch v-model="formItem.is_banned" size="large">
                 <span slot="open">On</span>
                 <span slot="close">Off</span>
             </i-switch>
         </FormItem>
-        <FormItem label="Slider">
-            <Slider v-model="formItem.slider" range></Slider>
-        </FormItem>
-        <FormItem label="Text">
-            <Input v-model="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="Enter something..."></Input>
-        </FormItem>
         <FormItem>
-            <Button type="primary">Submit</Button>
-            <Button style="margin-left: 8px">Cancel</Button>
+            <Button type="primary" @click="submit" :disabled="loading">
+                <span v-if="!loading">提交</span>
+                <span v-else>Loading...</span>
+            </Button>
+            <Button style="margin-left: 8px">取消</Button>
         </FormItem>
     </Form>
 </template>
 <script>
     export default {
+        props: ['tag'],
         data () {
             return {
+                loading: false,
                 formItem: {
-                    input: '',
-                    select: '',
-                    radio: 'male',
-                    checkbox: [],
-                    switch: true,
-                    date: '',
-                    time: '',
-                    slider: [20, 50],
-                    textarea: ''
-                }
+                    name: '',
+                    color: '#2b85e4',
+                    is_banned: false,
+                },
+                url: '/tags/store',
+            }
+        },
+        mounted() {
+            // 编辑页面数据赋值
+            if (this.tag) {
+                let tag = JSON.parse(this.tag);
+                this.formItem.name = tag.name;
+                this.formItem.color = tag.color;
+                this.formItem.is_banned = tag.is_banned;
+                this.url = '/tags/' + tag.id;
+            }
+        },
+        methods: {
+            submit() {
+                this.loading = true;
+                this.$Loading.start();
+                this.tag ? this.put() : this.post();
+            },
+            post() {
+                axios.post(this.url, {'formItem': this.formItem}).then(response => {
+                    this.$Loading.finish();
+                    this.$Notice.success({
+                        title: response.data.message,
+                        onClose: function () {
+                            window.location.href = '/tags';
+                        }
+                    });
+                    this.loading = false;
+
+
+                }).catch(error => {
+                    this.loading = false;
+                });
+            },
+            put() {
+                axios.put(this.url, {'formItem': this.formItem}).then(response => {
+                    this.$Loading.finish();
+                    this.$Notice.success({
+                        title: response.data.message,
+                        onClose: function () {
+                            window.location.href = '/tags';
+                        }
+                    });
+                    this.loading = false;
+
+
+                }).catch(error => {
+                    this.loading = false;
+                });
             }
         }
     }

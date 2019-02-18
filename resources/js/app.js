@@ -9,8 +9,14 @@ require('./bootstrap');
 window.Vue = require('vue');
 window.iView = require('iview');
 window.bus = new Vue;
+// notice 全局配置
+window.iView.Notice.config({
+    duration: 2
+});
 
 require('./lib/handlehttp');
+
+
 
 /**
  * The following block of code may be used to automatically register your
