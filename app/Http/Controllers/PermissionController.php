@@ -30,7 +30,7 @@ class PermissionController extends Controller
         return response()->json(['data' => $permissions, 'columns' => Permission::transformColumn()]);
     }
 
-    public function show(Article $article)
+    public function show(Permission $article)
     {
 
     }
@@ -40,22 +40,22 @@ class PermissionController extends Controller
 
     }
 
-    public function store(ArticleStoreRequest $request)
+    public function store(Request $request)
     {
 
     }
 
-    public function edit(Article $article)
+    public function edit(Permission $article)
     {
 
     }
 
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Permission $article)
     {
 
     }
 
-    public function destroy(Article $article)
+    public function destroy(Permission $article)
     {
 
     }

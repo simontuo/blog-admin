@@ -53,6 +53,8 @@ Vue.component('comment-table', require('./components/comment/CommentTable.vue').
 // tag
 Vue.component('tag-table', require('./components/tag/TagTable.vue').default);
 Vue.component('tag-create-and-update-form', require('./components/tag/CreateAndUpdate.vue').default);
+// role
+Vue.component('role-table', require('./components/role/RoleTable.vue').default);
 // permission
 Vue.component('permission-table', require('./components/permission/PermissionTable.vue').default);
 

@@ -29,8 +29,4 @@ class Permission extends Model
     protected $casts = [
 
     ];
-
-    protected $dates = [
-        'deleted_at'
-    ];
 }
