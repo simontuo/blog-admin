@@ -1,11 +1,13 @@
 <template>
     <div>
         <Table
-                :height="600"
+                highlight-row
+                :height="615"
                 :loading="loading"
                 :columns="columns"
                 :data="data"
-                ref="selection">
+                ref="selection"
+                @on-row-dblclick="dblClick">
         </Table>
         <div class="mt-3 float-right">
             <paginate :total="total"></paginate>
@@ -83,7 +85,7 @@
         methods: {
             search(page = 1, pagesSize = 10) {
                 this.loading = true;
-                axios.get('/tags/page_search', {params: {page: page, pagesSize: pagesSize}}).then(response => {
+                axios.get('/permissions/page_search', {params: {page: page, pagesSize: pagesSize}}).then(response => {
                     this.columns = response.data.columns;
                     this.columns.push(this.action);
                     this.data = response.data.data.data;
@@ -91,12 +93,15 @@
                     this.loading = false;
                 });
             },
+            dblClick(row) {
+                window.location.href = '/permissions/' + row.id;
+            },
             edit(params) {
-                window.location.href = '/tags/' + params.row.id + '/edit';
+                window.location.href = '/permissions/' + params.row.id + '/edit';
             },
             del() {
                 this.modalLoading = true;
-                axios.delete('/tags/' + this.id).then(response => {
+                axios.delete('/permissions/' + this.id).then(response => {
                     this.modalLoading = false;
                     this.deleteModal = false;
                     this.$Notice.success({

@@ -32,8 +32,8 @@
                 系统管理
             </template>
             <MenuItem name="管理员">管理员</MenuItem>
-            <MenuItem name="角色">角色</MenuItem>
-            <MenuItem name="权限">权限</MenuItem>
+            <MenuItem name="角色管理">角色管理</MenuItem>
+            <MenuItem name="权限管理">权限管理</MenuItem>
         </Submenu>
     </Menu>
 
@@ -61,6 +61,14 @@
                     {
                         'name': '评论管理',
                         'url': '/comments'
+                    },
+                    {
+                        'name': '角色管理',
+                        'url': '/roles'
+                    },
+                    {
+                        'name': '权限管理',
+                        'url': '/permissions'
                     }
                 ],
             }

@@ -48,7 +48,7 @@
                     is_public: false,
                     content: '',
                 },
-                url: '/articles/store',
+                url: '/articles',
             }
         },
         mounted() {

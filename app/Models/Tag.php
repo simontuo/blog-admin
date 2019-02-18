@@ -32,6 +32,10 @@ class Tag extends Model
         'is_banned' => 'boolean',
     ];
 
+    protected $dates = [
+        'deleted_at'
+    ];
+
     public function articles()
     {
         return $this->belongsToMany(Article::class)->withTimestamps();

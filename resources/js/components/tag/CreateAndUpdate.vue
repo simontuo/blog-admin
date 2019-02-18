@@ -32,7 +32,7 @@
                     color: '#2b85e4',
                     is_banned: false,
                 },
-                url: '/tags/store',
+                url: '/tags',
             }
         },
         mounted() {
