@@ -30,6 +30,7 @@ Route::get('/comments', 'CommentController@index')->name('comments.index');
 Route::get('/comments/page_search', 'CommentController@pageSearch')->name('comments.page_search');
 // 系统管理
 Route::resource('roles', 'RoleController');
+Route::get('/permissions/page_search', 'PermissionController@pageSearch')->name('permissions.page_search');
 Route::resource('permissions', 'PermissionController');
 
 
