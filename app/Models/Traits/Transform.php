@@ -104,8 +104,12 @@ trait Transform
      * @param $value
      * @return string
      */
-    public function getHttpMethodAttribute($value)
+    public function getHttpMethodFormatAttribute()
     {
-        return $value ?? 'any';
+        if (is_array($this->http_method) && count($this->http_method) < 1) {
+            return 'any';
+        }
+
+        return $this->http_method ? json_encode($this->http_method) : 'any';
     }
 }

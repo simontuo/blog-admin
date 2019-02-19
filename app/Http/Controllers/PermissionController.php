@@ -53,18 +53,26 @@ class PermissionController extends Controller
         return response()->json(['message' => '新建成功'], 200);
     }
 
-    public function edit(Permission $article)
+    public function edit(Permission $permission)
     {
-
+        return view('permissions.create_and_update', [
+            'permission'  => $permission,
+            'httpMethods' => Permission::$httpMethodMap,
+            'breadcrumbs' => $this->breadcrumbs,
+        ]);
     }
 
-    public function update(Request $request, Permission $article)
+    public function update(Request $request, Permission $permission)
     {
+        $permission->update($request->formItem);
 
+        return response()->json(['message' => '编辑成功'], 200);
     }
 
-    public function destroy(Permission $article)
+    public function destroy(Permission $permission)
     {
+        $permission->delete();
 
+        return response()->json(['message' => '删除成功'], 200);
     }
 }

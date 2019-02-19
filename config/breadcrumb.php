@@ -71,6 +71,16 @@ return [
                 'label' => '新建权限',
                 'url'   => ''
             ],
+        ],
+        'edit' => [
+            [
+                'label' => '权限管理',
+                'url'   => '/permissions'
+            ],
+            [
+                'label' => '编辑权限',
+                'url'   => ''
+            ],
         ]
     ]
 ];

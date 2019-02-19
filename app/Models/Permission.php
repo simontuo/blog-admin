@@ -4,12 +4,10 @@ namespace App\Models;
 
 use App\Models\Traits\Transform;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Permission extends Model
 {
     use Transform;
-    use SoftDeletes;
 
     const HTTP_METHOD_GET = 'get';
     const HTTP_METHOD_POST = 'post';
@@ -28,12 +26,12 @@ class Permission extends Model
     ];
 
     public static $columns = [
-        'name'           => '名称',
-        'display_name'   => '显示名称',
-        'http_method'    => 'HTTP方法',
-        'http_path'      => 'HTTP路径',
-        'description'    => '描述',
-        'created_format' => '创建于',
+        'name'               => '名称',
+        'display_name'       => '显示名称',
+        'http_method_format' => 'HTTP方法',
+        'http_path'          => 'HTTP路径',
+        'description'        => '描述',
+        'created_format'     => '创建于',
     ];
 
     protected $fillable = [
@@ -46,14 +44,11 @@ class Permission extends Model
     ];
 
     protected $appends = [
-        'created_format'
+        'http_method_format', 'created_format'
     ];
 
     protected $casts = [
-        'is_banned' => 'boolean'
-    ];
-
-    protected $dates = [
-        'deleted_at'
+        'http_method' => 'array',
+        'is_banned'   => 'boolean',
     ];
 }
