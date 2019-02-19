@@ -12,19 +12,27 @@ trait Transform
 {
     public static function transformColumn()
     {
-        $selection = [
-            'type'  => 'selection',
-            'width' => 60,
-            'align' => 'center',
+        $defaultColumns = [
+            [
+                'type'  => 'selection',
+                'width' => 60,
+                'align' => 'center',
+            ],
+            [
+                'type'  => 'index',
+                'width' => 60,
+                'align' => 'center',
+            ],
+            [
+                'title'   => 'ID',
+                'key'     => 'id',
+                'tooltip' => true,
+                'align'   => 'center',
+                'width'   => 60,
+            ]
         ];
 
-        $index = [
-            'type'  => 'index',
-            'width' => 60,
-            'align' => 'center',
-        ];
-
-        return collect([$selection, $index])->merge(collect(self::$columns)->map(function ($item, $key) {
+        return collect($defaultColumns)->merge(collect(self::$columns)->map(function ($item, $key) {
             return [
                 'title'   => $item,
                 'key'     => $key,
