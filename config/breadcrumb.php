@@ -60,5 +60,17 @@ return [
                 'url'   => ''
             ],
         ]
+    ],
+    'permissions' => [
+        'create' => [
+            [
+                'label' => '权限管理',
+                'url'   => '/permissions'
+            ],
+            [
+                'label' => '新建权限',
+                'url'   => ''
+            ],
+        ]
     ]
 ];

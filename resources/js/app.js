@@ -57,6 +57,7 @@ Vue.component('tag-create-and-update-form', require('./components/tag/CreateAndU
 Vue.component('role-table', require('./components/role/RoleTable.vue').default);
 // permission
 Vue.component('permission-table', require('./components/permission/PermissionTable.vue').default);
+Vue.component('permission-create-and-update-form', require('./components/permission/CreateAndUpdate.vue').default);
 
 
 /**

@@ -96,4 +96,16 @@ trait Transform
     {
         return $this->is_banned ? '是' : '否';
     }
+
+    /**
+     * HTTP方法
+     *
+     * author SimonTuo
+     * @param $value
+     * @return string
+     */
+    public function getHttpMethodAttribute($value)
+    {
+        return $value ?? 'any';
+    }
 }

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use App\Models\Traits\Transform;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
     use Transform;
+    use SoftDeletes;
 
     public static $columns = [
         'creator'        => '创建人',

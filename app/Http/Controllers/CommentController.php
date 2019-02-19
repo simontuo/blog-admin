@@ -30,34 +30,10 @@ class CommentController extends Controller
         return response()->json(['data' => $members, 'columns' => Comment::transformColumn()]);
     }
 
-    public function show(Article $article)
-    {
-        $parseDownExtra = new ParsedownExtra();
-
-        $article->content = $parseDownExtra->text($article->content);
-
-        $article->load('user', 'tags');
-
-        $article->increment('read_count');
-
-        return view('articles.show', [
-            'article'     => $article,
-            'breadcrumbs' => $this->breadcrumbs,
-        ]);
-    }
-
-    public function edit(Comment $comment)
-    {
-
-    }
-
-    public function update(Request $request, Comment $comment)
-    {
-
-    }
-
     public function destroy(Comment $comment)
     {
+        $comment->delete();
 
+        return response()->json(['message' => '删除成功'], 200);
     }
 }

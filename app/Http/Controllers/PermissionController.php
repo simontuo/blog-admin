@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PermissionStoreRequest;
 use App\Models\Permission;
 use Illuminate\Http\Request;
 
@@ -37,12 +38,19 @@ class PermissionController extends Controller
 
     public function create()
     {
-
+        return view('permissions.create_and_update', [
+            'httpMethods' => Permission::$httpMethodMap,
+            'breadcrumbs' => $this->breadcrumbs,
+        ]);
     }
 
-    public function store(Request $request)
+    public function store(PermissionStoreRequest $request)
     {
+        $permission = new Permission($request->formItem);
 
+        $permission->save();
+
+        return response()->json(['message' => '新建成功'], 200);
     }
 
     public function edit(Permission $article)
