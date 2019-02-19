@@ -26,8 +26,8 @@ Route::get('/tags/page_search', 'TagController@pageSearch')->name('tags.page_sea
 Route::get('/articles/page_search', 'ArticleController@pageSearch')->name('articles.page_search');
 Route::resource('articles', 'ArticleController');
 // 评论管理
-Route::get('/comments', 'CommentController@index')->name('comments.index');
 Route::get('/comments/page_search', 'CommentController@pageSearch')->name('comments.page_search');
+Route::resource('comments', 'CommentController')->except(['create', 'store']);
 // 系统管理
 Route::get('/roles/page_search', 'RoleController@pageSearch')->name('roles.page_search');
 Route::resource('roles', 'RoleController');
