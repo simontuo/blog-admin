@@ -85,7 +85,7 @@
         methods: {
             search(page = 1, pagesSize = 10) {
                 this.loading = true;
-                axios.get('/permissions/page_search', {params: {page: page, pagesSize: pagesSize}}).then(response => {
+                axios.get('/roles/page_search', {params: {page: page, pagesSize: pagesSize}}).then(response => {
                     this.columns = response.data.columns;
                     this.columns.push(this.action);
                     this.data = response.data.data.data;
@@ -94,14 +94,14 @@
                 });
             },
             dblClick(row) {
-                window.location.href = '/permissions/' + row.id;
+                window.location.href = '/roles/' + row.id;
             },
             edit(params) {
-                window.location.href = '/permissions/' + params.row.id + '/edit';
+                window.location.href = '/roles/' + params.row.id + '/edit';
             },
             del() {
                 this.modalLoading = true;
-                axios.delete('/permissions/' + this.id).then(response => {
+                axios.delete('/roles/' + this.id).then(response => {
                     this.modalLoading = false;
                     this.deleteModal = false;
                     this.$Notice.success({

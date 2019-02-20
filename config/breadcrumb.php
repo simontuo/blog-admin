@@ -82,5 +82,27 @@ return [
                 'url'   => ''
             ],
         ]
+    ],
+    'roles' => [
+        'create' => [
+            [
+                'label' => '角色管理',
+                'url'   => '/roles'
+            ],
+            [
+                'label' => '新建角色',
+                'url'   => ''
+            ],
+        ],
+        'edit' => [
+            [
+                'label' => '角色管理',
+                'url'   => '/roles'
+            ],
+            [
+                'label' => '新建角色',
+                'url'   => ''
+            ],
+        ]
     ]
 ];

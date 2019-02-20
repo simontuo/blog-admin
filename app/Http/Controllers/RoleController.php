@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoleStoreRequest;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -19,15 +20,15 @@ class RoleController extends Controller
 
     public function index()
     {
-        return view('permissions.index');
+        return view('roles.index');
     }
 
     public function pageSearch(Request $request)
     {
-        $permissions = Role::latest()
+        $roles = Role::latest()
             ->paginate($request->pagesSize);
 
-        return response()->json(['data' => $permissions, 'columns' => Role::transformColumn()]);
+        return response()->json(['data' => $roles, 'columns' => Role::transformColumn()]);
     }
 
     public function show(Role $article)
@@ -37,26 +38,39 @@ class RoleController extends Controller
 
     public function create()
     {
-
+        return view('roles.create_and_update', [
+            'breadcrumbs' => $this->breadcrumbs,
+        ]);
     }
 
-    public function store(Role $request)
+    public function store(RoleStoreRequest $request)
     {
+        $role = new Role($request->formItem);
 
+        $role->save();
+
+        return response()->json(['message' => '新建成功'], 200);
     }
 
-    public function edit(Role $article)
+    public function edit(Role $role)
     {
-
+        return view('roles.create_and_update', [
+            'breadcrumbs' => $this->breadcrumbs,
+            'role'        => $role,
+        ]);
     }
 
-    public function update(Request $request, Role $article)
+    public function update(Request $request, Role $role)
     {
+        $role->update($request->formItem);
 
+        return response()->json(['message' => '编辑成功'], 200);
     }
 
-    public function destroy(Role $article)
+    public function destroy(Role $role)
     {
+        $role->delete();
 
+        return response()->json(['message' => '删除成功'], 200);
     }
 }
