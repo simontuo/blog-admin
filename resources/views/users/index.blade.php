@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="m-3">
-        <user-center></user-center>
+        <user-table></user-table>
     </div>
 @endsection

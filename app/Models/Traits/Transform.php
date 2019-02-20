@@ -112,4 +112,15 @@ trait Transform
 
         return $this->http_method ? json_encode($this->http_method) : 'any';
     }
+
+    /**
+     * 是否管理员
+     *
+     * creator fjy
+     * @return string
+     */
+    public function getIsAdminFormatAttribute()
+    {
+        return $this->is_admin ? '是' : '否';
+    }
 }

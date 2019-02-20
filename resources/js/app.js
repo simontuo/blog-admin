@@ -41,8 +41,6 @@ Vue.component('markdown-textarea', require('./components/layout/MarkdownTextarea
 Vue.component('bread-crumb', require('./components/layout/BreadCrumb.vue').default);
 // dashboard
 Vue.component('count-card', require('./components/dashboard/CountCard.vue').default);
-// user
-Vue.component('user-center', require('./components/user/Center.vue').default);
 // member
 Vue.component('member-table', require('./components/member/MemberTable.vue').default);
 // article
@@ -53,6 +51,9 @@ Vue.component('comment-table', require('./components/comment/CommentTable.vue').
 // tag
 Vue.component('tag-table', require('./components/tag/TagTable.vue').default);
 Vue.component('tag-create-and-update-form', require('./components/tag/CreateAndUpdate.vue').default);
+// user
+Vue.component('user-center', require('./components/user/Center.vue').default);
+Vue.component('user-table', require('./components/user/UserTable.vue').default);
 // role
 Vue.component('role-table', require('./components/role/RoleTable.vue').default);
 Vue.component('role-create-and-update-form', require('./components/role/CreateAndUpdate.vue').default);

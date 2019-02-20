@@ -14,7 +14,6 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@homePage')->name('home.page');
-Route::get('/users', 'UserController@index')->name('users.index');
 Route::get('/home', 'HomeController@index')->name('home.index');
 // 会员管理
 Route::get('/members', 'MemberController@index')->name('members.index');
@@ -29,8 +28,13 @@ Route::resource('articles', 'ArticleController');
 Route::get('/comments/page_search', 'CommentController@pageSearch')->name('comments.page_search');
 Route::resource('comments', 'CommentController')->except(['create', 'store']);
 // 系统管理
+// 管理员
+Route::get('/users/page_search', 'UserController@pageSearch')->name('users.page_search');
+Route::get('/users', 'UserController@index')->name('users.index');
+// 角色管理
 Route::get('/roles/page_search', 'RoleController@pageSearch')->name('roles.page_search');
 Route::resource('roles', 'RoleController');
+// 权限管理
 Route::get('/permissions/page_search', 'PermissionController@pageSearch')->name('permissions.page_search');
 Route::resource('permissions', 'PermissionController');
 

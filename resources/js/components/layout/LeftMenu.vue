@@ -63,6 +63,10 @@
                         'url': '/comments'
                     },
                     {
+                        'name': '管理员',
+                        'url': '/users'
+                    },
+                    {
                         'name': '角色管理',
                         'url': '/roles'
                     },
