@@ -44,12 +44,14 @@
             }
         },
         mounted() {
-            console.log(JSON.parse(this.permissions));
+
             // 编辑页面数据赋值
             if (this.role) {
                 let role = JSON.parse(this.role);
                 this.formItem.name = role.name;
                 this.formItem.slug = role.slug;
+                this.formItem.targetPermissions = role.permissionIds;
+                this.targetPermissions = role.permissionIds;
                 this.formItem.description = role.description;
                 this.url = '/roles/' + role.id;
             }
