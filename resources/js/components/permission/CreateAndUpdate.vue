@@ -3,8 +3,8 @@
         <FormItem label="名称">
             <Input v-model="formItem.name" placeholder="Enter something..."></Input>
         </FormItem>
-        <FormItem label="显示名称">
-            <Input v-model="formItem.display_name" placeholder="Enter something..."></Input>
+        <FormItem label="标签">
+            <Input v-model="formItem.slug" placeholder="Enter something..."></Input>
         </FormItem>
         <FormItem label="HTTP方法">
             <Select
@@ -21,12 +21,6 @@
         <FormItem label="HTTP路径">
             <Input v-model="formItem.http_path" type="textarea" :autosize="{minRows: 2,maxRows: 5}"
                    placeholder="Enter something..."></Input>
-        </FormItem>
-        <FormItem label="禁用">
-            <i-switch v-model="formItem.is_banned" size="large">
-                <span slot="open">On</span>
-                <span slot="close">Off</span>
-            </i-switch>
         </FormItem>
         <FormItem label="描述">
             <Input v-model="formItem.description" type="textarea" :autosize="{minRows: 2,maxRows: 5}"
@@ -49,10 +43,9 @@
                 loading: false,
                 formItem: {
                     name: '',
-                    display_name: '',
+                    slug: '',
                     http_method: [],
                     http_path: '',
-                    is_banned: false,
                     description: '',
                 },
                 url: '/permissions'
@@ -63,10 +56,9 @@
             if (this.permission) {
                 let permission = JSON.parse(this.permission);
                 this.formItem.name = permission.name;
-                this.formItem.display_name = permission.display_name;
+                this.formItem.slug = permission.slug;
                 this.formItem.http_method = permission.http_method;
                 this.formItem.http_path = permission.http_path;
-                this.formItem.is_banned = permission.is_banned;
                 this.formItem.description = permission.description;
                 this.url = '/permissions/' + permission.id;
             }

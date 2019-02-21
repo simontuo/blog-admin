@@ -41,7 +41,7 @@ if (!function_exists('getTransferData')) {
         return $collection->map(function ($item) {
             return [
                 'key'         => $item->id,
-                'label'       => $item->display_name ?? $item->name,
+                'label'       => $item->slug ?? $item->name,
                 'description' => $item->description ?? '',
                 'disabled'    => $item->is_banned ?? false,
             ];

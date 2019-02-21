@@ -11,7 +11,7 @@ class Role extends Model
 
     public static $columns = [
         'name'             => '名称',
-        'display_name'     => '显示名称',
+        'slug'             => '标签',
         'is_banned_format' => '禁用',
         'description'      => '描述',
         'created_format'   => '创建于',
@@ -19,8 +19,7 @@ class Role extends Model
 
     protected $fillable = [
         'name',
-        'display_name',
-        'is_banned',
+        'slug',
         'description',
     ];
 
@@ -29,6 +28,11 @@ class Role extends Model
     ];
 
     protected $casts = [
-        'is_banned' => 'boolean',
+
     ];
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class)->withTimestamps();
+    }
 }

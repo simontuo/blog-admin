@@ -27,7 +27,7 @@ class Permission extends Model
 
     public static $columns = [
         'name'               => '名称',
-        'display_name'       => '显示名称',
+        'slug'               => '标签',
         'http_method_format' => 'HTTP方法',
         'http_path'          => 'HTTP路径',
         'description'        => '描述',
@@ -36,10 +36,9 @@ class Permission extends Model
 
     protected $fillable = [
         'name',
-        'display_name',
+        'slug',
         'http_method',
         'http_path',
-        'is_banned',
         'description',
     ];
 
@@ -49,6 +48,10 @@ class Permission extends Model
 
     protected $casts = [
         'http_method' => 'array',
-        'is_banned'   => 'boolean',
     ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
 }

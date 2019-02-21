@@ -3,14 +3,8 @@
         <FormItem label="名称">
             <Input v-model="formItem.name" placeholder="Enter something..."></Input>
         </FormItem>
-        <FormItem label="显示名称">
-            <Input v-model="formItem.display_name" placeholder="Enter something..."></Input>
-        </FormItem>
-        <FormItem label="禁用">
-            <i-switch v-model="formItem.is_banned" size="large">
-                <span slot="open">On</span>
-                <span slot="close">Off</span>
-            </i-switch>
+        <FormItem label="标签">
+            <Input v-model="formItem.slug" placeholder="Enter something..."></Input>
         </FormItem>
         <FormItem label="权限">
             <Transfer
@@ -41,8 +35,7 @@
                 loading: false,
                 formItem: {
                     name: '',
-                    display_name: '',
-                    is_banned: false,
+                    slug: '',
                     targetPermissions: [],
                     description: '',
                 },
@@ -56,8 +49,7 @@
             if (this.role) {
                 let role = JSON.parse(this.role);
                 this.formItem.name = role.name;
-                this.formItem.display_name = role.display_name;
-                this.formItem.is_public = role.is_public;
+                this.formItem.slug = role.slug;
                 this.formItem.description = role.description;
                 this.url = '/roles/' + role.id;
             }

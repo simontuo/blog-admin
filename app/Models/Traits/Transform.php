@@ -101,7 +101,6 @@ trait Transform
      * HTTP方法
      *
      * author SimonTuo
-     * @param $value
      * @return string
      */
     public function getHttpMethodFormatAttribute()

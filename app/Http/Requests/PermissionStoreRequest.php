@@ -17,20 +17,18 @@ class PermissionStoreRequest extends Request
         $id         = $permission->id ?? '';
 
         return [
-            'formItem.name'         => 'required|unique:permissions,name,' . $id,
-            'formItem.display_name' => 'required|unique:permissions,display_name,' . $id,
-            'formItem.http_path'    => 'required',
-            'formItem.is_banned'    => 'required|boolean',
+            'formItem.name'      => 'required|unique:permissions,name,' . $id,
+            'formItem.slug'      => 'required|unique:permissions,slug,' . $id,
+            'formItem.http_path' => 'required',
         ];
     }
 
     public function attributes()
     {
         return [
-            'formItem.name'         => '名称',
-            'formItem.display_name' => '显示名称',
-            'formItem.http_path'    => 'HTTP路径',
-            'formItem.is_banned'    => '是否禁用',
+            'formItem.name'      => '名称',
+            'formItem.slug'      => '标签',
+            'formItem.http_path' => 'HTTP路径',
         ];
     }
 }

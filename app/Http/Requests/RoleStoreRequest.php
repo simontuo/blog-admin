@@ -15,8 +15,7 @@ class RoleStoreRequest extends Request
     {
         return [
             'formItem.name'              => 'required',
-            'formItem.display_name'      => 'required',
-            'formItem.is_banned'         => 'required|boolean',
+            'formItem.slug'              => 'required',
             'formItem.targetPermissions' => 'required|array',
         ];
     }
@@ -24,9 +23,8 @@ class RoleStoreRequest extends Request
     public function attributes()
     {
         return [
-            'formItem.name'         => '名称',
-            'formItem.display_name' => '显示名称',
-            'formItem.is_banned'    => '禁用',
+            'formItem.name'      => '名称',
+            'formItem.slug'      => '标签',
         ];
     }
 }
