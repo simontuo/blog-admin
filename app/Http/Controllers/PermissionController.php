@@ -39,7 +39,7 @@ class PermissionController extends Controller
     public function create()
     {
         return view('permissions.create_and_update', [
-            'httpMethods' => Permission::$httpMethodMap,
+            'httpMethods' => Permission::$httpMethods,
             'breadcrumbs' => $this->breadcrumbs,
         ]);
     }
@@ -57,7 +57,7 @@ class PermissionController extends Controller
     {
         return view('permissions.create_and_update', [
             'permission'  => $permission,
-            'httpMethods' => Permission::$httpMethodMap,
+            'httpMethods' => Permission::$httpMethods,
             'breadcrumbs' => $this->breadcrumbs,
         ]);
     }

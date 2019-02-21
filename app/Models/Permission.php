@@ -4,25 +4,18 @@ namespace App\Models;
 
 use App\Models\Traits\Transform;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class Permission extends Model
 {
     use Transform;
 
-    const HTTP_METHOD_GET = 'get';
-    const HTTP_METHOD_POST = 'post';
-    const HTTP_METHOD_PUT = 'put';
-    const HTTP_METHOD_DELETE = 'delete';
-    const HTTP_METHOD_PATCH = 'patch';
-    const HTTP_METHOD_OPTIONS = 'options';
-
-    public static $httpMethodMap = [
-        self::HTTP_METHOD_GET,
-        self::HTTP_METHOD_POST,
-        self::HTTP_METHOD_PUT,
-        self::HTTP_METHOD_DELETE,
-        self::HTTP_METHOD_PATCH,
-        self::HTTP_METHOD_OPTIONS,
+    /**
+     * @var array
+     */
+    public static $httpMethods = [
+        'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS', 'HEAD',
     ];
 
     public static $columns = [
@@ -53,5 +46,61 @@ class Permission extends Model
     public function roles()
     {
         return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    /**
+     * If request should pass through the current permission.
+     *
+     * @param Request $request
+     *
+     * @return bool
+     */
+    public function shouldPassThrough(Request $request)
+    {
+        if (empty($this->http_method) && empty($this->http_path)) {
+            return true;
+        }
+
+        $method = $this->http_method;
+
+        $matches = array_map(function ($path) use ($method) {
+            // $path = trim(config('route.prefix'), '/').$path;
+
+            if (Str::contains($path, ':')) {
+                list($method, $path) = explode(':', $path);
+                $method = explode(',', $method);
+            }
+
+            return compact('method', 'path');
+        }, explode("\r\n", $this->http_path));
+
+        foreach ($matches as $match) {
+            if ($this->matchRequest($match, $request)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * If a request match the specific HTTP method and path.
+     *
+     * @param array   $match
+     * @param Request $request
+     *
+     * @return bool
+     */
+    protected function matchRequest(array $match, Request $request) : bool
+    {
+        if (!$request->is(trim($match['path'], '/'))) {
+            return false;
+        }
+
+        $method = collect($match['method'])->filter()->map(function ($method) {
+            return strtoupper($method);
+        });
+
+        return $method->isEmpty() || $method->contains($request->method());
     }
 }

@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'is_admin'
     ];
 
     /**
@@ -58,5 +58,20 @@ class User extends Authenticatable
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    /**
+     * Get all permissions of user.
+     *
+     * @return mixed
+     */
+    public function allPermissions()
+    {
+        return $this->roles()->with('permissions')->get()->pluck('permissions')->flatten();
     }
 }
