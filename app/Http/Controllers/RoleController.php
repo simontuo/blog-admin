@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleStoreRequest;
+use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -36,9 +37,19 @@ class RoleController extends Controller
 
     }
 
+    /**
+     * 新建角色页
+     *
+     * creator fjy
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Exception
+     */
     public function create()
     {
+        $permissions = Permission::get();
+
         return view('roles.create_and_update', [
+            'permissions' => getTransferData($permissions),
             'breadcrumbs' => $this->breadcrumbs,
         ]);
     }

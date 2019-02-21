@@ -8,7 +8,8 @@
         <role-create-and-update-form
                 @if(\Route::currentRouteName() == 'roles.edit')
                     role="{{ $role->toJson() }}"
-                @endif>
+                @endif
+                permissions="{{ $permissions->toJson() }}">
         </role-create-and-update-form>
     </div>
 @endsection

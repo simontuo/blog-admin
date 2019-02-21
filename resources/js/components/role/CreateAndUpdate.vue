@@ -12,6 +12,14 @@
                 <span slot="close">Off</span>
             </i-switch>
         </FormItem>
+        <FormItem label="权限">
+            <Transfer
+                    :data="JSON.parse(permissions)"
+                    :target-keys="targetPermissions"
+                    filterable
+                    :filter-method="filterMethod"
+                    @on-change="handleChange"></Transfer>
+        </FormItem>
         <FormItem label="描述">
             <Input v-model="formItem.description" type="textarea" :autosize="{minRows: 2,maxRows: 5}"
                    placeholder="Enter something..."></Input>
@@ -27,7 +35,7 @@
 </template>
 <script>
     export default {
-        props: ['role'],
+        props: ['role', 'permissions'],
         data() {
             return {
                 loading: false,
@@ -35,12 +43,15 @@
                     name: '',
                     display_name: '',
                     is_banned: false,
+                    targetPermissions: [],
                     description: '',
                 },
                 url: '/roles',
+                targetPermissions: [],
             }
         },
         mounted() {
+            console.log(JSON.parse(this.permissions));
             // 编辑页面数据赋值
             if (this.role) {
                 let role = JSON.parse(this.role);
@@ -55,6 +66,7 @@
             submit() {
                 this.loading = true;
                 this.$Loading.start();
+                this.formItem.targetPermissions = this.targetPermissions;
                 this.role ? this.put() : this.post();
             },
             post() {
@@ -88,6 +100,12 @@
                 }).catch(error => {
                     this.loading = false;
                 });
+            },
+            handleChange (newTargetKeys) {
+                this.targetPermissions = newTargetKeys;
+            },
+            filterMethod (data, query) {
+                return data.label.indexOf(query) > -1;
             }
         }
     }

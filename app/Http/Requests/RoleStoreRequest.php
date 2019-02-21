@@ -14,9 +14,10 @@ class RoleStoreRequest extends Request
     public function rules()
     {
         return [
-            'formItem.name'         => 'required',
-            'formItem.display_name' => 'required',
-            'formItem.is_banned'    => 'required|boolean',
+            'formItem.name'              => 'required',
+            'formItem.display_name'      => 'required',
+            'formItem.is_banned'         => 'required|boolean',
+            'formItem.targetPermissions' => 'required|array',
         ];
     }
 
