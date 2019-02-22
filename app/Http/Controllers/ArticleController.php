@@ -27,11 +27,11 @@ class ArticleController extends Controller
 
     public function pageSearch(Request $request)
     {
-        $members = Article::with('user')
+        $articles = Article::with('user')
             ->latest()
             ->paginate($request->pagesSize);
 
-        return response()->json(['data' => $members, 'columns' => Article::transformColumn()]);
+        return response()->json(['data' => $articles, 'columns' => Article::transformColumn()]);
     }
 
     public function show(Article $article)

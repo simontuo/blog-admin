@@ -16,7 +16,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@homePage')->name('home.page');
 
-Route::group(['middleware' => ['permission']], function () {
+Route::group(['middleware' => []], function () {
     Route::get('/home', 'HomeController@index')->name('home.index');
     // 会员管理
     Route::get('/members', 'MemberController@index')->name('members.index');
