@@ -13,7 +13,7 @@ class AvatarSeeder extends Seeder
     {
         $idention = new \Identicon\Identicon();
 
-        $users = \App\Models\User::get();
+        $users = \App\Models\User::withoutGlobalScopes()->get();
 
         foreach ($users as $user) {
             $user->avatar = $idention->getImageDataUri($user->name);

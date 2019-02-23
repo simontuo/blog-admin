@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\Transform;
+use App\Scopes\AdminScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -50,7 +51,9 @@ class Article extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withoutGlobalScopes([
+            AdminScope::class
+        ]);
     }
 
     public function tags()

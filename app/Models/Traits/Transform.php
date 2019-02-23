@@ -61,7 +61,7 @@ trait Transform
      */
     public function getCreatorAttribute()
     {
-        return $this->user->name;
+        return $this->user->name ?? '';
     }
 
     /**
