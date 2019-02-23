@@ -12,9 +12,9 @@
 */
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/', 'HomeController@homePage')->name('home.page');
+Route::get('/', 'HomeController@homePage')->name('home.page')->middleware('verified');
 
 Route::group(['middleware' => []], function () {
     Route::get('/home', 'HomeController@index')->name('home.index');
