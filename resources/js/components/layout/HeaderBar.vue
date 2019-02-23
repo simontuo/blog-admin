@@ -6,7 +6,7 @@
                 <Dropdown
                         @on-click="handleClick">
                     <a href="javascript:void(0)">
-                        <Avatar icon="ios-person" />
+                        <Avatar :src="JSON.parse(user).avatar" />
                         <Icon type="md-arrow-dropdown" size="20"></Icon>
                     </a>
                     <DropdownMenu slot="list">
@@ -24,6 +24,7 @@
 
 <script>
     export default {
+        props: ['user'],
         data() {
             return {
                 token: $('meta[name="csrf-token"]').attr('content'),

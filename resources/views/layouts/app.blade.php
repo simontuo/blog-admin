@@ -81,7 +81,7 @@
                 <left-menu></left-menu>
             </template>
             <template slot="header-bar">
-                <header-bar></header-bar>
+                <header-bar user="{{ user()->toJson() }}"></header-bar>
             </template>
             <template slot="tag-nav">
                 <tag-nav></tag-nav>
