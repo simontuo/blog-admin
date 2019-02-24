@@ -24,6 +24,9 @@ Route::group(['middleware' => []], function () {
     // 标签管理
     Route::resource('tags', 'TagController')->except(['show']);
     Route::get('/tags/page_search', 'TagController@pageSearch')->name('tags.page_search');
+    // 标签管理
+    Route::get('/resources/page_search', 'ResourceController@pageSearch')->name('resources.page_search');
+    Route::resource('resources', 'ResourceController');
     // 文章管理
     Route::get('/articles/page_search', 'ArticleController@pageSearch')->name('articles.page_search');
     Route::resource('articles', 'ArticleController');

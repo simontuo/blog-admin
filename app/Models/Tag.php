@@ -40,4 +40,9 @@ class Tag extends Model
     {
         return $this->belongsToMany(Article::class)->withTimestamps();
     }
+
+    public function resources()
+    {
+        return $this->belongsToMany(Resource::class)->withTimestamps();
+    }
 }
