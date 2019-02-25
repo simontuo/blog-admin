@@ -7,56 +7,65 @@
  */
 
 return [
-    'articles' => [
+    'home'        => [
+        'index' => [
+            [
+                'name'        => '首页',
+                'url'         => '/',
+                'cannotClose' => true
+            ]
+        ]
+    ],
+    'articles'    => [
         'show'   => [
             [
-                'label' => '文章管理',
+                'name' => '文章管理',
                 'url'   => '/articles'
             ],
             [
-                'label' => '查看文章',
+                'name' => '查看文章',
                 'url'   => ''
             ]
         ],
         'create' => [
             [
-                'label' => '文章管理',
+                'name' => '文章管理',
                 'url'   => '/articles'
             ],
             [
-                'label' => '新建文章',
+                'name' => '新建文章',
                 'url'   => ''
             ]
         ],
         'edit'   => [
             [
-                'label' => '文章管理',
+                'name' => '文章管理',
                 'url'   => '/articles'
             ],
             [
-                'label' => '编辑文章',
+                'name' => '编辑文章',
                 'url'   => ''
             ]
         ]
     ],
-    'tags' => [
+    'tags'        => [
         'create' => [
             [
-                'label' => '标签管理',
+                'name' => '标签管理',
                 'url'   => '/tags'
             ],
             [
-                'label' => '新建标签',
+                'name' => '新建标签',
                 'url'   => ''
             ],
         ],
-        'edit' => [
+        'edit'   => [
             [
-                'label' => '标签管理',
+                'name' => '标签管理',
                 'url'   => '/tags'
             ],
             [
-                'label' => '编辑标签',
+                'name' => '编辑标签',
                 'url'   => ''
             ],
         ]
@@ -64,43 +73,65 @@ return [
     'permissions' => [
         'create' => [
             [
-                'label' => '权限管理',
+                'name' => '权限管理',
                 'url'   => '/permissions'
             ],
             [
-                'label' => '新建权限',
+                'name' => '新建权限',
                 'url'   => ''
             ],
         ],
-        'edit' => [
+        'edit'   => [
             [
-                'label' => '权限管理',
+                'name' => '权限管理',
                 'url'   => '/permissions'
             ],
             [
-                'label' => '编辑权限',
+                'name' => '编辑权限',
                 'url'   => ''
             ],
         ]
     ],
-    'roles' => [
+    'roles'       => [
         'create' => [
             [
-                'label' => '角色管理',
+                'name' => '角色管理',
                 'url'   => '/roles'
             ],
             [
-                'label' => '新建角色',
+                'name' => '新建角色',
                 'url'   => ''
             ],
         ],
-        'edit' => [
+        'edit'   => [
             [
-                'label' => '角色管理',
+                'name' => '角色管理',
                 'url'   => '/roles'
             ],
             [
-                'label' => '新建角色',
+                'name' => '编辑角色',
+                'url'   => ''
+            ],
+        ]
+    ],
+    'resources'   => [
+        'create' => [
+            [
+                'name' => '资源管理',
+                'url'   => '/roles'
+            ],
+            [
+                'name' => '新建资源',
+                'url'   => ''
+            ],
+        ],
+        'edit'   => [
+            [
+                'name' => '资源管理',
+                'url'   => '/roles'
+            ],
+            [
+                'name' => '编辑资源',
                 'url'   => ''
             ],
         ]

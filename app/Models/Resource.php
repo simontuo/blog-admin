@@ -13,6 +13,7 @@ class Resource extends Model
         'name'           => '名称',
         'url'            => '地址',
         'icon'           => '图标',
+        'description'    => '描述',
         'created_format' => '创建于',
     ];
 
@@ -20,6 +21,7 @@ class Resource extends Model
         'name',
         'url',
         'icon',
+        'description',
     ];
 
     protected $appends = [

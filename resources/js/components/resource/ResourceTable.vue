@@ -94,7 +94,7 @@
                 });
             },
             dblClick(row) {
-                window.location.href = '/resources/' + row.id;
+                window.open(row.url);
             },
             edit(params) {
                 window.location.href = '/resources/' + params.row.id + '/edit';
