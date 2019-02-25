@@ -2,7 +2,7 @@
     <div class="header-bar">
         <Header :style="{padding: 0}" class="layout-header-bar">
             <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu" size="24"></Icon>
-            <bread-crumb  :breadcrumbs="breadcrumbs"></bread-crumb>
+            <bread-crumb></bread-crumb>
             <div class="float-right mr-3">
                 <Dropdown
                         @on-click="handleClick">

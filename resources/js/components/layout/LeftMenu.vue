@@ -52,35 +52,43 @@
                 urls: [
                     {
                         'name': '会员管理',
-                        'url': '/members'
+                        'url': '/members',
+                        'level': 1,
                     },
                     {
                         'name': '文章管理',
-                        'url': '/articles'
+                        'url': '/articles',
+                        'level': 1,
                     },
                     {
                         'name': '标签管理',
-                        'url': '/tags'
+                        'url': '/tags',
+                        'level': 1,
                     },
                     {
                         'name': '资源管理',
-                        'url': '/resources'
+                        'url': '/resources',
+                        'level': 1,
                     },
                     {
                         'name': '评论管理',
-                        'url': '/comments'
+                        'url': '/comments',
+                        'level': 1,
                     },
                     {
                         'name': '管理员',
-                        'url': '/users'
+                        'url': '/users',
+                        'level': 1,
                     },
                     {
                         'name': '角色管理',
-                        'url': '/roles'
+                        'url': '/roles',
+                        'level': 1,
                     },
                     {
                         'name': '权限管理',
-                        'url': '/permissions'
+                        'url': '/permissions',
+                        'level': 1,
                     }
                 ],
             }
