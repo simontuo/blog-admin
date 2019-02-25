@@ -2,6 +2,7 @@
     <div class="header-bar">
         <Header :style="{padding: 0}" class="layout-header-bar">
             <Icon @click.native="collapsedSider" :class="rotateIcon" :style="{margin: '0 20px'}" type="md-menu" size="24"></Icon>
+            <bread-crumb  :breadcrumbs="breadcrumbs"></bread-crumb>
             <div class="float-right mr-3">
                 <Dropdown
                         @on-click="handleClick">
@@ -24,7 +25,7 @@
 
 <script>
     export default {
-        props: ['user'],
+        props: ['user', 'breadcrumbs'],
         data() {
             return {
                 token: $('meta[name="csrf-token"]').attr('content'),
@@ -62,7 +63,7 @@
 </script>
 
 <style scoped>
-    .header-bar {
+    /*.header-bar {*/
 
-    }
+    /*}*/
 </style>

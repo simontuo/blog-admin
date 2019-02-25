@@ -7,7 +7,15 @@
  */
 
 return [
-    'articles' => [
+    'home'        => [
+        'index' => [
+            [
+                'label' => 'Home',
+                'url'   => '/'
+            ]
+        ]
+    ],
+    'articles'    => [
         'show'   => [
             [
                 'label' => '文章管理',
@@ -39,7 +47,7 @@ return [
             ]
         ]
     ],
-    'tags' => [
+    'tags'        => [
         'create' => [
             [
                 'label' => '标签管理',
@@ -50,7 +58,7 @@ return [
                 'url'   => ''
             ],
         ],
-        'edit' => [
+        'edit'   => [
             [
                 'label' => '标签管理',
                 'url'   => '/tags'
@@ -72,7 +80,7 @@ return [
                 'url'   => ''
             ],
         ],
-        'edit' => [
+        'edit'   => [
             [
                 'label' => '权限管理',
                 'url'   => '/permissions'
@@ -83,7 +91,7 @@ return [
             ],
         ]
     ],
-    'roles' => [
+    'roles'       => [
         'create' => [
             [
                 'label' => '角色管理',
@@ -94,7 +102,7 @@ return [
                 'url'   => ''
             ],
         ],
-        'edit' => [
+        'edit'   => [
             [
                 'label' => '角色管理',
                 'url'   => '/roles'
@@ -105,7 +113,7 @@ return [
             ],
         ]
     ],
-    'resources' => [
+    'resources'   => [
         'create' => [
             [
                 'label' => '资源管理',
@@ -116,7 +124,7 @@ return [
                 'url'   => ''
             ],
         ],
-        'edit' => [
+        'edit'   => [
             [
                 'label' => '资源管理',
                 'url'   => '/roles'

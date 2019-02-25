@@ -48,3 +48,15 @@ if (!function_exists('getTransferData')) {
         });
     }
 }
+
+if (!function_exists('getBreadCrumb')) {
+    /**
+     * 获取面包屑数据
+     *
+     * creator fjy
+     * @return \Illuminate\Support\Collection
+     */
+    function getBreadCrumb() {
+        return collect(config('breadcrumb.home.index'));
+    }
+}

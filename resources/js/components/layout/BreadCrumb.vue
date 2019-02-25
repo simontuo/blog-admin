@@ -1,5 +1,5 @@
 <template>
-    <Breadcrumb>
+    <Breadcrumb class="custom-bread-crumb">
         <BreadcrumbItem
                 :to="breadcrumb.url"
                 v-for="(breadcrumb, index) in JSON.parse(breadcrumbs)"
