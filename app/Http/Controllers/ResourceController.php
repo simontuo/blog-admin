@@ -25,7 +25,7 @@ class ResourceController extends Controller
     public function pageSearch(Request $request)
     {
         $resources = Resource::paginate($request->pagesSize);
-        
+
         return response()->json(['data' => $resources, 'columns' => Resource::transformColumn()]);
     }
 
