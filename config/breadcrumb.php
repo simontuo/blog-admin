@@ -100,7 +100,29 @@ return [
                 'url'   => '/roles'
             ],
             [
-                'label' => '新建角色',
+                'label' => '编辑角色',
+                'url'   => ''
+            ],
+        ]
+    ],
+    'resources' => [
+        'create' => [
+            [
+                'label' => '资源管理',
+                'url'   => '/roles'
+            ],
+            [
+                'label' => '新建资源',
+                'url'   => ''
+            ],
+        ],
+        'edit' => [
+            [
+                'label' => '资源管理',
+                'url'   => '/roles'
+            ],
+            [
+                'label' => '编辑资源',
                 'url'   => ''
             ],
         ]

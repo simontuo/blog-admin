@@ -53,6 +53,7 @@ Vue.component('tag-table', require('./components/tag/TagTable.vue').default);
 Vue.component('tag-create-and-update-form', require('./components/tag/CreateAndUpdate.vue').default);
 // resources
 Vue.component('resource-table', require('./components/resource/ResourceTable.vue').default);
+Vue.component('resource-create-and-update-form', require('./components/resource/CreateAndUpdate.vue').default);
 // user
 Vue.component('user-center', require('./components/user/Center.vue').default);
 Vue.component('user-table', require('./components/user/UserTable.vue').default);
