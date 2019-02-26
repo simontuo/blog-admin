@@ -1,7 +1,7 @@
 <template>
     <Menu
             @on-select="onSelect"
-            active-name="/members"
+            :active-name="activeName"
             theme="dark"
             width="auto"
             :class="menuitemClasses"
@@ -11,33 +11,42 @@
             <p v-else>B</p>
         </div>
         <MenuItem name="会员管理">
-            <Icon type="ios-navigate"></Icon>
+            <Icon type="md-contacts"></Icon>
             <span>会员管理</span>
         </MenuItem>
         <MenuItem name="标签管理">
-            <Icon type="ios-search"></Icon>
+            <Icon type="md-pricetags"></Icon>
             <span>标签管理</span>
         </MenuItem>
         <MenuItem name="资源管理">
-            <Icon type="ios-search"></Icon>
+            <Icon type="md-cube"></Icon>
             <span>资源管理</span>
         </MenuItem>
         <MenuItem name="文章管理">
-            <Icon type="ios-search"></Icon>
+            <Icon type="md-document"></Icon>
             <span>文章管理</span>
         </MenuItem>
         <MenuItem name="评论管理">
-            <Icon type="ios-settings"></Icon>
+            <Icon type="md-chatboxes"></Icon>
             <span>评论管理</span>
         </MenuItem>
         <Submenu name="系统管理">
             <template slot="title">
-                <Icon type="ios-paper" />
+                <Icon type="md-settings"></Icon>
                 系统管理
             </template>
-            <MenuItem name="管理员">管理员</MenuItem>
-            <MenuItem name="角色管理">角色管理</MenuItem>
-            <MenuItem name="权限管理">权限管理</MenuItem>
+            <MenuItem name="管理员">
+                <Icon type="md-contact"></Icon>
+                <span>管理员</span>
+            </MenuItem>
+            <MenuItem name="角色管理">
+                <Icon type="md-people"></Icon>
+                <span>角色管理</span>
+                </MenuItem>
+            <MenuItem name="权限管理">
+                <Icon type="md-unlock"></Icon>
+                <span>权限管理</span>
+            </MenuItem>
         </Submenu>
     </Menu>
 
@@ -49,6 +58,7 @@
             return {
                 isCollapsed: false,
                 height: '',
+                activeName: '',
                 urls: [
                     {
                         'name': '会员管理',
@@ -107,6 +117,10 @@
 
             bus.$on('isCollapsed', response => {
                 this.isCollapsed = response;
+            });
+
+            bus.$on('activeTag', response => {
+                this.activeName = response.level === 0 ? '' : response.name;
             });
         },
         methods: {

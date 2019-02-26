@@ -18,6 +18,7 @@
                         name: '首页',
                         url: '/home',
                         cannotClose: true,
+                        level: 0,
                     }
                 ],
             }
@@ -29,6 +30,15 @@
                         this.breadcrumbs.pop();
                     }
 
+                    this.breadcrumbs.push(response);
+                }
+            });
+            bus.$on('activeTag', response => {
+                console.log(response);
+                if (!this.isLastTagDifferentLevel(response) || response.level === 0) {
+                    this.breadcrumbs.pop();
+                }
+                if (response.level !== 0) {
                     this.breadcrumbs.push(response);
                 }
             });
