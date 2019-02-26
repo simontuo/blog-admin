@@ -36,7 +36,7 @@ Route::group(['middleware' => []], function () {
     // 系统管理
     // 管理员
     Route::get('/users/page_search', 'UserController@pageSearch')->name('users.page_search');
-    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::resource('/users', 'UserController');
     // 角色管理
     Route::get('/roles/page_search', 'RoleController@pageSearch')->name('roles.page_search');
     Route::resource('roles', 'RoleController');

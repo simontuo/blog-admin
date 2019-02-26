@@ -60,3 +60,17 @@ if (!function_exists('getBreadCrumb')) {
         return collect(config('breadcrumb.home.index'));
     }
 }
+
+if (!function_exists('ddd')) {
+    /**
+     * 更改dd状态码
+     *
+     * author SimonTuo
+     * @param mixed ...$args
+     */
+    function ddd(...$args) {
+        http_response_code(500);
+
+        call_user_func_array('dd', $args);
+    }
+}

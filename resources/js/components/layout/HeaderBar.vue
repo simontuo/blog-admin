@@ -7,7 +7,7 @@
                 <Dropdown
                         @on-click="handleClick">
                     <a href="javascript:void(0)">
-                        <Avatar :src="JSON.parse(user).avatar" />
+                        <Avatar :src="JSON.parse(user).avatar"></Avatar>
                         <Icon type="md-arrow-dropdown" size="20"></Icon>
                     </a>
                     <DropdownMenu slot="list">
@@ -55,7 +55,7 @@
             userCenter() {
                 bus.$emit('pushTag', {
                     'name': '个人中心',
-                    'url': '/users'
+                    'url': '/users/' + JSON.parse(this.user).id
                 });
             }
         }

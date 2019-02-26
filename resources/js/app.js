@@ -55,7 +55,8 @@ Vue.component('tag-create-and-update-form', require('./components/tag/CreateAndU
 Vue.component('resource-table', require('./components/resource/ResourceTable.vue').default);
 Vue.component('resource-create-and-update-form', require('./components/resource/CreateAndUpdate.vue').default);
 // user
-Vue.component('user-center', require('./components/user/Center.vue').default);
+Vue.component('user-info-card', require('./components/user/InfoCard.vue').default);
+Vue.component('user-tab', require('./components/user/UserTab').default);
 Vue.component('user-table', require('./components/user/UserTable.vue').default);
 // role
 Vue.component('role-table', require('./components/role/RoleTable.vue').default);
