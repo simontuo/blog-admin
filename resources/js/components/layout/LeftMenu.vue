@@ -30,12 +30,16 @@
             <Icon type="md-chatboxes"></Icon>
             <span>评论管理</span>
         </MenuItem>
-        <Submenu name="系统管理">
+        <MenuItem name="系统管理" v-if="isCollapsed">
+            <Icon type="md-settings"></Icon>
+            <span>系统管理</span>
+        </MenuItem>
+        <Submenu name="系统管理" v-else>
             <template slot="title">
                 <Icon type="md-settings"></Icon>
-                系统管理
+                <span>系统管理</span>
             </template>
-            <MenuItem name="管理员">
+            <MenuItem name="管理员" >
                 <Icon type="md-contact"></Icon>
                 <span>管理员</span>
             </MenuItem>
