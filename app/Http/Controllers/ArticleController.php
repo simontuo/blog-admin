@@ -69,7 +69,7 @@ class ArticleController extends Controller
 
         $article->tags()->attach($request->formItem['tags']);
 
-        return response()->json(['message' => '新建成功'], 200);
+        return response()->json(['message' => '新建成功'],200);
     }
 
     public function edit(Article $article)

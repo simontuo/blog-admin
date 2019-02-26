@@ -11,7 +11,7 @@
                     :color="tag.name === activeName ? 'primary' : ''" v-for="tag in tags"
                     :key="tag.name"
                     :name="tag.name"
-                    @click.native="handleClick(tag.name)"
+                    @click.native="handleClick(tag)"
                     @on-close="close">
                 {{ tag.name }}
             </Tag>
@@ -35,6 +35,7 @@
                         name: '首页',
                         url: '/home',
                         cannotClose: true,
+                        level: 0,
                     }
                 ],
                 activeName: '首页',
@@ -61,8 +62,9 @@
 
                 return exist;
             },
-            handleClick(name) {
-                this.activeName = name;
+            handleClick(tag) {
+                this.activeName = tag.name;
+                bus.$emit('activeTag', tag);
             },
             close(event, name) {
                 for (var i = 0; i < this.tags.length; i ++) {
