@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+        Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
 
         /*
          * Application Service Providers...
