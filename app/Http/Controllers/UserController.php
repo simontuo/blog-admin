@@ -33,7 +33,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         return view('users.show', [
-           'user' => $user
+            'user' => $user
         ]);
     }
 
@@ -60,5 +60,18 @@ class UserController extends Controller
     public function destroy(User $user)
     {
 
+    }
+
+    public function updateAvatar(Request $request, User $user)
+    {
+        if (!user()->isOwn($user->id)) {
+            throw new \Exception('你不拥有该资源的权限');
+        }
+
+        $user->update([
+            'avatar' => $request->avatar,
+        ]);
+
+        return response(['message' => '修改成功'], 200);
     }
 }

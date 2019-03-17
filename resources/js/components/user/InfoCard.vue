@@ -3,7 +3,7 @@
         <div class="info-card-head">
             <div>
                 <img class="mr-3 rounded-circle"
-                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAIAAAABlV4SAAAABnRSTlMAAAAAAABupgeRAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAk0lEQVRoge3awQmAMBQEUSMWYgnpv4qUYCm2sKc4LvPOnw+DHiRxHJm17nByzmfztjPcRWYDgw0MNjDYwGADQ0PDyD+/sBqegw0MNjDYwGADgw0MNjDYwGADgw0MNjDYwGADQ0PDCOe+OtL0fvo/bGCwgcEGBhsYGhoa7navfHT/z4bhtoZ3yQYGGxhsYLCBwQaGFyr3EwEl0gtIAAAAAElFTkSuQmCC"
+                     :src="avatar"
                      alt="Generic placeholder image"
                      width="100"
                      height="100">
@@ -32,7 +32,7 @@
                 <div class="info-card-head">
                     <div>
                         <img class="mr-3 rounded-circle"
-                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAIAAAABlV4SAAAABnRSTlMAAAAAAABupgeRAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAk0lEQVRoge3awQmAMBQEUSMWYgnpv4qUYCm2sKc4LvPOnw+DHiRxHJm17nByzmfztjPcRWYDgw0MNjDYwGADQ0PDyD+/sBqegw0MNjDYwGADgw0MNjDYwGADgw0MNjDYwGADQ0PDCOe+OtL0fvo/bGCwgcEGBhsYGhoa7navfHT/z4bhtoZ3yQYGGxhsYLCBwQaGFyr3EwEl0gtIAAAAAElFTkSuQmCC"
+                             :src="avatar"
                              alt="Generic placeholder image"
                              width="100"
                              height="100">
@@ -44,9 +44,13 @@
                     </div>
                 </div>
                 <Upload
+                        clearFiles
                         multiple
                         type="drag"
-                        action="//jsonplaceholder.typicode.com/posts/">
+                        :data="uploadData"
+                        :format="['jpg','jpeg','png']"
+                        :on-success="handleSuccess"
+                        action="/upload/image/avatar">
                     <div style="padding: 20px 0">
                         <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
                         <p>Click or drag files here to upload</p>
@@ -54,7 +58,7 @@
                 </Upload>
             </div>
             <div slot="footer">
-                <Button type="primary" size="large" long :loading="modal_loading" @click="avatarChange">提交</Button>
+                <Button type="primary" size="large" long @click="avatarChange" :disabled="!uploadLoading">提交</Button>
             </div>
         </Modal>
     </Card>
@@ -62,16 +66,43 @@
 
 <script>
     export default {
+        props: ['user'],
         data() {
             return {
                 avatarModal: false,
+                uploadLoading: false,
+                file: '',
+                avatar: '',
+                id: '',
+                uploadData: {
+                    _token: document.head.querySelector('meta[name="csrf-token"]').content,
+                }
             }
+        },
+        mounted() {
+            let info = JSON.parse(this.user);
+            this.avatar = info.avatar;
+            this.id = info.id;
         },
         methods: {
             openAvatarModal() {
                 this.avatarModal = true;
             },
+            handleSuccess(res, file) {
+                this.avatar = res.url;
+                if (res.url) {
+                    this.uploadLoading = true;
+                }
+            },
             avatarChange() {
+                axios.put('/users/' + this.id + '/avatar', {'avatar': this.avatar}).then(response => {
+                    this.$Notice.success({
+                        title: response.data.message
+                    });
+                    this.avatarModal = false;
+                });
+            },
+            ok() {
 
             }
         }

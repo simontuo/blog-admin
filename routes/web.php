@@ -17,7 +17,11 @@ Auth::routes(['verify' => true]);
 Route::get('/', 'HomeController@homePage')->name('home.page')->middleware('verified');
 
 Route::group(['middleware' => []], function () {
+    // 上存图片
+    Route::post('/upload/image/{type}', 'UploadController@upload')->name('upload.image');
     Route::get('/home', 'HomeController@index')->name('home.index');
+    // 个人中心
+    Route::put('/users/{user}/avatar', 'UserController@updateAvatar')->name('users.update_avatar');
     // 会员管理
     Route::get('/members', 'MemberController@index')->name('members.index');
     Route::get('/members/page_search', 'MemberController@pageSearch')->name('members.page_search');

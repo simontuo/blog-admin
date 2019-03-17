@@ -74,4 +74,18 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->roles()->with('permissions')->get()->pluck('permissions')->flatten();
     }
+
+    /**
+     * author SimonTuo
+     * @param $id
+     * @return bool
+     */
+    public function isOwn($id): bool
+    {
+        if (user()->id != $id) {
+            return false;
+        }
+
+        return true;
+    }
 }
