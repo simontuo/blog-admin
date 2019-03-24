@@ -1,20 +1,26 @@
 <template>
     <Card :bordered="false">
-        <Tabs>
-            <TabPane label="文章" name="name1">标签一的内容</TabPane>
-            <TabPane label="评论" name="name2">标签二的内容</TabPane>
-            <TabPane label="点赞" name="name3">标签三的内容</TabPane>
-            <TabPane label="收藏" name="name3">标签三的内容</TabPane>
-        </Tabs>
+        <p slot="title">我的文章</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" v-for="article in JSON.parse(this.articles)">{{ article.title }}</li>
+        </ul>
     </Card>
 </template>
 
 <script>
     export default {
-        name: "UserTab"
+        props: ['articles'],
+        data() {
+            return {
+
+            }
+        },
+        mounted() {
+
+        }
     }
 </script>
 
 <style scoped>
-
+   
 </style>

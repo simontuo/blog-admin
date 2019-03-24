@@ -6,7 +6,7 @@
             <user-info-card user="{{ user()->toJson() }}"></user-info-card>
         </div>
         <div class="col-md-8">
-            <user-tab></user-tab>
+            <user-tab articles="{{ user()->articles->toJson() }}"></user-tab>
         </div>
     </div>
 @endsection
