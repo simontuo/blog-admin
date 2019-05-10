@@ -28,9 +28,12 @@ Route::group(['middleware' => []], function () {
     // 标签管理
     Route::resource('tags', 'TagController')->except(['show']);
     Route::get('/tags/page_search', 'TagController@pageSearch')->name('tags.page_search');
-    // 标签管理
+    // 资源管理
     Route::get('/resources/page_search', 'ResourceController@pageSearch')->name('resources.page_search');
     Route::resource('resources', 'ResourceController')->except(['show']);
+    // 文档管理
+    Route::get('/documents/page_search', 'DocumentController@pageSearch')->name('documents.page_search');
+    Route::resource('documents', 'DocumentController')->except(['show']);
     // 文章管理
     Route::get('/articles/page_search', 'ArticleController@pageSearch')->name('articles.page_search');
     Route::resource('articles', 'ArticleController');

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="26fd457a-aa4b-4608-ac51-7ea3e0e711c8" name="maguas-aliyun" url="http://120.78.225.152">
+        <fileTransfer host="120.78.225.152" port="22" rootFolder="/var/www/blog-admin" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

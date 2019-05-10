@@ -22,8 +22,12 @@
             <Icon type="md-cube"></Icon>
             <span>资源管理</span>
         </MenuItem>
-        <MenuItem name="文章管理">
+        <MenuItem name="文档管理">
             <Icon type="md-document"></Icon>
+            <span>文档管理</span>
+        </MenuItem>
+        <MenuItem name="文章管理">
+            <Icon type="md-star"></Icon>
             <span>文章管理</span>
         </MenuItem>
         <MenuItem name="评论管理">
@@ -82,6 +86,11 @@
                     {
                         'name': '资源管理',
                         'url': '/resources',
+                        'level': 1,
+                    },
+                    {
+                        'name': '文档管理',
+                        'url': '/documents',
                         'level': 1,
                     },
                     {
