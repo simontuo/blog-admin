@@ -45,4 +45,9 @@ class Tag extends Model
     {
         return $this->belongsToMany(Resource::class)->withTimestamps();
     }
+
+    public function documents()
+    {
+        return $this->belongsToMany(Document::class)->withTimestamps();
+    }
 }
