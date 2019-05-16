@@ -25,6 +25,7 @@ window.axios.interceptors.response.use(response => {
             case 408:
                 error.message = '请求超时';
                 break;
+
             case 422:
                 error.message = '数据验证出错';
                 let descs = error.response.data.errors;
