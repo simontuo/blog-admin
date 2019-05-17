@@ -67,6 +67,8 @@ Vue.component('role-create-and-update-form', require('./components/role/CreateAn
 // permission
 Vue.component('permission-table', require('./components/permission/PermissionTable.vue').default);
 Vue.component('permission-create-and-update-form', require('./components/permission/CreateAndUpdate.vue').default);
+// charts
+Vue.component('one-week-of-active-user', require('./components/charts/OneWeekOfActiveUser.vue').default);
 
 
 /**
