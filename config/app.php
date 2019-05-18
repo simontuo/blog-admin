@@ -168,6 +168,7 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
         Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
 
         /*
          * Application Service Providers...

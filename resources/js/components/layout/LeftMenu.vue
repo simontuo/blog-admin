@@ -55,6 +55,10 @@
                 <Icon type="md-unlock"></Icon>
                 <span>权限管理</span>
             </MenuItem>
+            <MenuItem name="日志管理">
+                <Icon type="md-calendar" />
+                <span>日志管理</span>
+            </MenuItem>
         </Submenu>
     </Menu>
 
@@ -111,6 +115,11 @@
                     {
                         'name': '权限管理',
                         'url': '/permissions',
+                        'level': 1,
+                    },
+                    {
+                        'name': '日志管理',
+                        'url': '/log-viewer',
                         'level': 1,
                     }
                 ],

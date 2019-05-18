@@ -50,6 +50,9 @@ Route::group(['middleware' => []], function () {
     // 权限管理
     Route::get('/permissions/page_search', 'PermissionController@pageSearch')->name('permissions.page_search');
     Route::resource('permissions', 'PermissionController');
+    // 日志管理
+    // Route::get('/logs', 'LogController@index')->name('logs.index');
+
 });
 
 
