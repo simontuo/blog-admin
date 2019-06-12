@@ -11,10 +11,16 @@
             </Select>
         </FormItem>
         <FormItem label="类型">
-            <RadioGroup v-model="formItem.type">
+            <RadioGroup v-model="formItem.type" @on-change="typeChange">
                 <Radio label="original">原创</Radio>
                 <Radio label="carry">搬运</Radio>
             </RadioGroup>
+        </FormItem>
+        <FormItem label="原文作者" v-if="formItem.type === 'carry'">
+            <Input v-model="formItem.original_author" placeholder="输入原作者..."></Input>
+        </FormItem>
+        <FormItem label="原文链接" v-if="formItem.type === 'carry'">
+            <Input v-model="formItem.original_link" placeholder="输入原文链接..."></Input>
         </FormItem>
         <FormItem label="公开">
             <i-switch v-model="formItem.is_public" size="large">
@@ -45,6 +51,8 @@
                     title: '',
                     tags: [],
                     type: 'carry',
+                    original_author: '',
+                    original_link: '',
                     is_public: false,
                     content: '',
                 },
@@ -58,6 +66,9 @@
                 this.formItem.title = article.title;
                 this.formItem.tags = article.tagIds;
                 this.formItem.is_public = article.is_public;
+                this.formItem.content = article.content;
+                this.formItem.original_author = article.original_author;
+                this.formItem.original_link = article.original_link;
                 this.formItem.content = article.content;
                 this.url = '/articles/' + article.id;
             }
@@ -99,6 +110,13 @@
                 }).catch(error => {
                     this.loading = false;
                 });
+            },
+            typeChange() {
+                console.log(this.formItem.type);
+                if (this.formItem.type !== "carry") {
+                    this.formItem.original_author = '';
+                    this.formItem.original_link = '';
+                }
             }
         }
     }

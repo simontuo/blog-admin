@@ -38,16 +38,22 @@
                         {{--文章内容 结束--}}
                         {{--文章脚部 开始--}}
                         <div class="article-show-footer">
-
-                            <div class="card-">
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>原文作者：大力哥</strong> 该文章为搬运文章，若涉及侵权马上删除，原文链接
-                                    <a href="#">请点击</a>.
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
+                            <div class="article-show-footer-icon">
+                                @foreach($article->tags as $tag)
+                                    <span class="badge badge-secondary" style="background-color: {{ $tag->color }};">{{ $tag->name }}</span>
+                                @endforeach
                             </div>
+                            @if($article->type == 'carry')
+                                <div class="mt-2">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>原文作者：{{ $article->original_author }}</strong> 该文章为搬运文章，若涉及侵权马上删除，原文链接
+                                        <a href="{{ $article->original_link }}">请点击</a>.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         {{--文章脚部 结束--}}
                     </div>

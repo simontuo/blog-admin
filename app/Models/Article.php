@@ -24,6 +24,8 @@ class Article extends Model
         'creator'          => '创建人',
         'is_public_format' => '公开',
         'type_format'      => '类型',
+        'original_author'  => '原文作者',
+        'original_link'    => '原文链接',
         'title'            => '标题',
         'content'          => '正文',
         'created_format'   => '创建于',
@@ -35,6 +37,8 @@ class Article extends Model
         'title',
         'content',
         'is_public',
+        'original_author',
+        'original_link'
     ];
 
     protected $appends = [
