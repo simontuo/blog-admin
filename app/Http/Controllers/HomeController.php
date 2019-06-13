@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Article;
+use App\Models\Comment;
+use App\Models\User;
+
 class HomeController extends Controller
 {
     /**
@@ -34,6 +38,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $clickAmount = Article::sum('read_count');
+        $userAmount = User::count();
+        $articleAmount = Article::count();
+        $commentAmount = Comment::count();
+
+        return view('home', [
+            'data' => [
+                'clickAmount' => $clickAmount,
+                'userAmount' => $userAmount,
+                'articleAmount' => $articleAmount,
+                'commentAmount' => $commentAmount
+            ]
+        ]);
     }
 }
