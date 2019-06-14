@@ -69,6 +69,8 @@ Vue.component('permission-table', require('./components/permission/PermissionTab
 Vue.component('permission-create-and-update-form', require('./components/permission/CreateAndUpdate.vue').default);
 // charts
 Vue.component('one-week-of-active-user', require('./components/charts/OneWeekOfActiveUser.vue').default);
+// system
+Vue.component('create-manager-button', require('./components/system/Create.vue').default);
 
 
 /**

@@ -44,6 +44,9 @@ Route::group(['middleware' => []], function () {
     // 管理员
     Route::get('/users/page_search', 'UserController@pageSearch')->name('users.page_search');
     Route::resource('/users', 'UserController');
+    Route::get('/users/get/list', 'UserController@list')->name('users.list');
+    Route::post('/users/manager/create', 'UserController@managerCreate')->name('users.manager.create');
+    Route::delete('/users/manager/{user}', 'UserController@managerDelete')->name('users.manager.delete');
     // 角色管理
     Route::get('/roles/page_search', 'RoleController@pageSearch')->name('roles.page_search');
     Route::resource('roles', 'RoleController');

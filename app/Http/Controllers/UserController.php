@@ -76,4 +76,49 @@ class UserController extends Controller
 
         return response(['message' => '修改成功'], 200);
     }
+
+    /**
+     * 用户列表
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function list(Request $request)
+    {
+        $users = User::withoutGlobalScopes()->get();
+
+        return response()->json(['data' => $users]);
+    }
+
+    /**
+     * 管理员创建
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function managerCreate(Request $request)
+    {
+        $users = User::withoutGlobalScopes()->whereIn('id', $request->id)->get();
+
+        $users->map(function ($user) {
+            $user->is_admin = true;
+            $user->save();
+        });
+
+        return response()->json(['message' => '新增成功'], 200);
+    }
+
+    /**
+     * 管理员删除
+     *
+     * @param User $user
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function managerDelete(User $user)
+    {
+        $user->is_admin = false;
+        $user->save();
+
+        return response()->json(['message' => '删除成功'], 200);
+    }
 }

@@ -101,7 +101,7 @@
             },
             del() {
                 this.modaLoading = true;
-                axios.delete('/users/' + this.id).then(response => {
+                axios.delete('/users/manager/' + this.id).then(response => {
                     this.modaLoading = false;
                     this.deleteModal = false;
                     this.$Notice.success({
