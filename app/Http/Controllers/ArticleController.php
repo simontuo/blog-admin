@@ -40,7 +40,7 @@ class ArticleController extends Controller
 
         $article->content = $parseDownExtra->text($article->content);
 
-        $article->load('user', 'tags');
+        $article->load('user', 'tags', 'likes', 'comments');
 
         $article->increment('read_count');
 

@@ -1,9 +1,9 @@
 @extends('layouts.iframe')
 
 @section('content')
-    <div class="bread-crumb">
-        <bread-crumb breadcrumbs="{{ collect($breadcrumbs)->toJson() }}"></bread-crumb>
-    </div>
+{{--    <div class="bread-crumb">--}}
+{{--        <bread-crumb breadcrumbs="{{ collect($breadcrumbs)->toJson() }}"></bread-crumb>--}}
+{{--    </div>--}}
     <div class="row show-body">
         <div class="col-sm-12">
             {{--文章内容 开始--}}
@@ -27,8 +27,8 @@
                         <div class="card-title-sub">
                             <span>创建于 {{ $article->created_at }}</span> -
                             <span>阅读数 {{ $article->read_count }}</span> -
-                            {{--<span>点赞数 {{ $article->likes->count() }}</span> ---}}
-                            {{--<span>评论数 {{ $article->comments->count() }}</span>--}}
+                            <span>点赞数 {{ $article->likes->count() }}</span> -
+                            <span>评论数 {{ $article->comments->count() }}</span>
                         </div>
                         {{--文章标题 结束--}}
                         {{--文章内容 开始--}}

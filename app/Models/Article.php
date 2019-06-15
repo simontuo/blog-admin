@@ -64,4 +64,16 @@ class Article extends Model
     {
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'article_user')
+            ->where('article_user.type', 'like')
+            ->withTimestamps();
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }
