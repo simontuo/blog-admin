@@ -37,4 +37,10 @@ class Comment extends Model
     {
         return $this->morphTo();
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'comment_user')
+            ->withTimestamps();
+    }
 }
