@@ -28,7 +28,7 @@
         "font-awesome": "^4.7.0",
         "ionicons": "^4.5.5",
         "iview": "^3.2.2",
-        "prismjs": "^1.15.0",
+        "prismjs": "^1.23.0",
         "simplemde": "^1.11.2",
         "v-charts": "^1.19.0"
     }
